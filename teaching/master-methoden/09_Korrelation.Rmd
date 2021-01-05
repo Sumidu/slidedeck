@@ -1,7 +1,7 @@
 ---
 title: "Zusammenhänge und Korrelation"
 subtitle: "Sozialwissenschaftliche Forschungsmethoden für Fortgeschrittene"
-author: "**Dr. André Calero Valdez**<br />" #Prof. Dr. Martina Ziefle <br /> <br />Human-Computer Interaction Center<br /> "
+author: "**Dr. André Calero Valdez**<br />" # can use md or html
 #date: "Datum"
 output:
   xaringan::moon_reader:

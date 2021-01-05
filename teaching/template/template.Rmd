@@ -1,0 +1,73 @@
+---
+title: "Zusammenhänge und Korrelation"
+subtitle: "Sozialwissenschaftliche Forschungsmethoden für Fortgeschrittene"
+author: "**Dr. André Calero Valdez**<br />" # can use md or html
+#date: "Datum"
+output:
+  xaringan::moon_reader:
+    css: ["default", "default-fonts", "hcic.css"]  
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+
+options(htmltools.dir.version = FALSE)
+options(digits = 4)
+knitr::opts_chunk$set(
+  cache = FALSE,
+  fig.align = "center",
+  dev = "png",
+  fig.retina = 2,
+  message = FALSE,
+  comment = NA
+)
+theme_set(theme_gray(base_size = 16))
+```
+
+
+# Slide with left and right part
+
+.pull-left[
+## Univariate
+```{r left, echo=F, fig.height=5}
+set.seed(0)
+height <- round(rnorm(100, 170, 15), 1)
+df_uni <- data.frame(height)
+head(df_uni, 10)
+ggplot(df_uni) + aes(height) + geom_histogram(bins = 10, fill = "black")
+```
+]
+
+--
+
+.pull-right[
+## Multivariate
+```{r right, echo=F, fig.height=5}
+shoesize <- round(runif(100, 36, 42))
+df_multi <- data.frame(height,
+                       shoesize)
+head(df_multi, 10)
+ggplot(df_uni) + aes(height, shoesize) + geom_point(size = 3, alpha = 0.8)
+```
+]
+
+
+---
+```{r figureoutput, echo=FALSE, out.width="80%"}
+knitr::include_graphics("figs/hcic.png")
+```
+
+
+
+
+
+---
+class: inverse, center, middle
+## .yellow[Intermediate Slide as an interruption]
+
+
