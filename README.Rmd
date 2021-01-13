@@ -8,11 +8,12 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
-)
+) 
 ```
 
 # My personal Slidedeck
 
+## Master Methods
 <!-- badges: start -->
 <!-- badges: end -->
 

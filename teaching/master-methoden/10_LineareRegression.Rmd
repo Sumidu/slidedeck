@@ -1,8 +1,8 @@
 ---
 title: "Lineare Regression"
 subtitle: "Sozialwissenschaftliche Forschungsmethoden für Fortgeschrittene"
-author: "**Dr. André Calero Valdez**<br />" #Prof. Dr. Martina Ziefle <br /> <br />Human-Computer Interaction Center<br /> "
-#date: "`r readr::read_file('current_semester.txt')`"
+author: "**Dr. André Calero Valdez**<br />" 
+#date: ""
 output:
   xaringan::moon_reader:
     css: ["default", "default-fonts", "hcic.css"]  
@@ -14,7 +14,6 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-#library(plyr)
 library(tidyverse)
 library(datasets)
 library(kableExtra)
@@ -25,18 +24,10 @@ library(EnvStats)
 library(gghighlight)
 library(jmv)
 library(ggpubr)
-options(htmltools.dir.version = FALSE)
-options(digits = 4)
-knitr::opts_chunk$set(
-  cache = FALSE,
-  fig.align = "center",
-  dev = "png",
-  fig.retina = 2,
-  message = FALSE,
-  comment = NA
-)
-theme_set(theme_gray(base_size = 16))
-source("agenda.R")
+
+```
+
+```{r child="header.Rmd"}
 ```
 
 
@@ -336,14 +327,6 @@ p3
 
 ---
 
-```{css, echo = FALSE}
-.huge .remark-code { /*Change made here*/
-  font-size: 200% !important;
-}
-.tiny .remark-code { /*Change made here*/
-  font-size: 65% !important;
-}
-```
 
 # Lineare Regression in R
 
@@ -383,20 +366,24 @@ Vorraussetzungen:
 .pull-left[
 Heteroskedastizität
 ```{r, echo=FALSE, out.width="50%"}
-knitr::include_graphics("figs/heteroske.jpg")
+knitr::include_graphics("figs/linreg/heteroske.jpg")
+
 ```
 ]
 
 ---
 # Andere Probleme
 
-![](figs/error1.png)
+```{r linreg/error1.png, echo=FALSE, out.width="100%"}
+knitr::include_graphics("figs/linreg/error1.png")
+```
+
 
 ---
 # Andere Probleme
-
-![](figs/error2.png)
-
+```{r error2, echo=FALSE, out.width="100%"}
+knitr::include_graphics("figs/linreg/error2.png")
+```
 
 ---
 # Multiple lineare Regression
@@ -446,4 +433,7 @@ Zusammenhangshypothesen können mit Korrelation und linearer Regression untersuc
 - Lineare Regression kann einfach auf mehrere Variablen erweitert werden.
 
 ---
-
+class: inverse, center, middle
+---
+class: inverse, center, middle
+## .yellow[ [Zurück zur Übersicht](index.html)]

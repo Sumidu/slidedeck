@@ -3,6 +3,8 @@
 
 # My personal Slidedeck
 
+## Master Methods
+
 <!-- badges: start -->
 
 <!-- badges: end -->

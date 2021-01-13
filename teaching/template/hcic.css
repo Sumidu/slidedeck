@@ -171,3 +171,10 @@ a {
 .gray {
   color: #CFD1D2;
 }
+
+.huge .remark-code { /*Change made here*/
+  font-size: 200% !important;
+}
+.tiny .remark-code { /*Change made here*/
+  font-size: 65% !important;
+}

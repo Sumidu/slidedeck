@@ -25,17 +25,9 @@ library(EnvStats)
 library(gghighlight)
 library(jmv)
 library(ggpubr)
-options(htmltools.dir.version = FALSE)
-options(digits = 4)
-knitr::opts_chunk$set(
-  cache = FALSE,
-  fig.align = "center",
-  dev = "png",
-  fig.retina = 2,
-  message = FALSE,
-  comment = NA
-)
-theme_set(theme_gray(base_size = 16))
+```
+
+```{r child="header.Rmd"}
 ```
 
 # T-Test und Inferenz
@@ -516,7 +508,10 @@ Vorraussetzung:
 - beide Variablen sind normalverteilt
 
 --
-![](figs/correlations.png)
+```{r correlations, echo=FALSE, out.width="100%"}
+knitr::include_graphics("figs/correlation/correlations.png")
+```
+
 
 
 ---
@@ -623,4 +618,8 @@ jmv::corrMatrix(data = dataforsocialscience::robo_care, vars = c("robo_bed", "ro
 class: inverse, center, middle
 ## .yellow[Korrelationen können nicht für die Vorhersage genutzt werden.]
 
+
+---
+class: inverse, center, middle
+## .yellow[ [Zurück zur Übersicht](index.html)]
 

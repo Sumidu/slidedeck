@@ -68,6 +68,6 @@ knitr::include_graphics("figs/hcic.png")
 
 ---
 class: inverse, center, middle
-## .yellow[Intermediate Slide as an interruption]
+## .yellow[ [Zurück zur Übersicht](index.html)]
 
 
