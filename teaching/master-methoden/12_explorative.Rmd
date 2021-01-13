@@ -26,7 +26,7 @@ library(likert)
 library(jmv)
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(cache = FALSE, fig.align = "center", dev = "png", fig.retina = 2)
-theme_set(theme_gray(base_size=16))
+theme_set(theme_gray(base_size = 16))
 ```
 
 
@@ -110,14 +110,14 @@ d %>%
 
 ```{r small-multiples, echo=FALSE, message=FALSE, warning=FALSE}
 
-d %>% filter(gender!="keine Angabe") %>% 
-  mutate(age_group = ntile(age, 3)) %>% 
-  mutate(age_group = factor(age_group, labels = c("jung", "mittel", "alt"))) %>% 
-  ggplot() + 
-  aes(x=cse, y=robo_face) + 
-  geom_jitter() + 
-  geom_smooth(method="lm") + facet_grid(age_group~gender) + theme_minimal(base_size = 16) +
-  labs(x="Kontrollüberzeugung im Umgang mit Technik", y="Akzeptanz robotischer Pflege: Gesichtspflege")
+d %>% filter(gender != "keine Angabe") %>%
+  mutate(age_group = ntile(age, 3)) %>%
+  mutate(age_group = factor(age_group, labels = c("jung", "mittel", "alt"))) %>%
+  ggplot() +
+  aes(x = cse, y = robo_face) +
+  geom_jitter() +
+  geom_smooth(method = "lm") + facet_grid(age_group ~ gender) + theme_minimal(base_size = 16) +
+  labs(x = "Kontrollüberzeugung im Umgang mit Technik", y = "Akzeptanz robotischer Pflege: Gesichtspflege")
 
 ```
 
