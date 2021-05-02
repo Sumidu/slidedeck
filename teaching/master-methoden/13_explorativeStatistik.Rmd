@@ -1,5 +1,5 @@
 ---
-title: "Explorative Statistik, nicht-parametrische Verfahren"
+title: "Deskriptive, explorative und schließende Statistik"
 subtitle: "Sozialwissenschaftliche Forschungsmethoden für Fortgeschrittene"
 author: "**Dr. André Calero Valdez**"
 date: ""
@@ -24,10 +24,11 @@ library(forecast)
 library(likert)
 #library(gghighlight)
 library(jmv)
-options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(cache = FALSE, fig.align = "center", dev = "png", fig.retina = 2)
-theme_set(theme_gray(base_size = 16))
 ```
+
+```{r child="header.Rmd"}
+```
+
 
 
 # Anwendung Statistik
@@ -140,60 +141,6 @@ d %>% filter(gender != "keine Angabe") %>%
 [https://www.naftaliharris.com/blog/visualizing-k-means-clustering/](https://www.naftaliharris.com/blog/visualizing-k-means-clustering/)
 
 
-
----
-class: inverse, center, middle
-
-# .yellow[Parametrische vs. nicht-parametrische Verfahren]
-
----
-# Parametrische Verfahren
-Bisherige Verfahren basieren auf der Verteilung der Daten
-- t-Test setzt Normalverteilte Daten vorraus
-
-Wir schätzen *Parameter* der Verteilung und vergleichen Daten mit idealen Verteilungen für Hypothesentests.
-- Parameter: Mittelwert, Standardabweichung
-
-## Wofür brauchen Verfahren Parameter?
-
---
-
-- Nur mit Hilfe von Mittelwert und Standardabweichung, können wir prüfen wie, ob z.B. ein Mitelwertsunterschied groß genug ist, für ein signifikantes Ergebnis. 
-
-
-Vorteil:
-- Einfache Verfahren
-- relativ robust gegen Verletzung der Vorraussetzung
-
----
-# Nichtparametrische Verfahren
-Nicht immer sind Parameter oder Verteilungen der Daten bekannt.
-- Nicht-parametrische Verfahren setzen diese nicht vorraus.
-
-## Beispiel:
-- t-Test und Mann-Whitney U test
-- Pearson und Spearman rank correlation
-- lineare Regression und ordinale Regression
-- ANOVA und Kruskal-Wallis Test
-
-
----
-## Wann welcher Test?
-![](figs/explorative/statistical-test-flow-chart.jpg)
----
-# Tools zum Lernen oder Nachschlagen
-
-Wann welche Methode?
-- https://statkat.com (Englisch)
-- https://www.methodenberatung.uzh.ch/de.html Methodenberatung Uni Zürich (SPSS)
-- Andy Field 
-
-Alternative Softwarelösungen zu R
-- SPSS (Nachteil: Kosten, Reproducibility)
-- Jamovi (Nachteil: kein Data Cleaning)
-- JASP (Nachteil: Fokus auf Bayes'sche Statistik)
-- Stata (Nachteil: Kosten)
-- etc..
 
 ---
 class: inverse, center, middle

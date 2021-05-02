@@ -335,7 +335,7 @@ p3
 
 df <- dataforsocialscience::robo_care
 jmv::linReg(df, dep = c("robo_bed"), covs = c("cse"), blocks = list("cse"), 
-            r2Adj = T, stdEst = T, anova = T, )
+            r2Adj = T, stdEst = T, modelTest = T)
 ```
 ]
 
@@ -389,14 +389,13 @@ knitr::include_graphics("figs/linreg/error2.png")
 # Multiple lineare Regression
 ```r
 jmv::linReg(df, dep = c("robo_bed"), covs = c("cse", "age"), 
-             blocks = list("cse", "age"), r2Adj = T, stdEst = T, anova=T)
+             blocks = list("cse", "age"), r2Adj = T, stdEst = T, modelTest=T)
 ```
 
 <!--pre style="font-size:6pt" -->
 ```{r echo=FALSE}
 df <- dataforsocialscience::robo_care
-result <- jmv::linReg(df, dep = c("robo_bed"), covs = c("cse", "age"), blocks = list("cse", "age"), r2Adj = T, stdEst = T, anova=T)
-
+result <- jmv::linReg(df, dep = c("robo_bed"), covs = c("cse", "age"), blocks = list("cse", "age"), r2Adj = T, stdEst = T, modelTest = T)
 result$models[[1]]
 
 ```

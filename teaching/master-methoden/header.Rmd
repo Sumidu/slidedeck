@@ -9,10 +9,11 @@ options(digits = 4)
 knitr::opts_chunk$set(
   cache = FALSE,
   fig.align = "center",
-  dev = "svg",
+  dev = "png",
   fig.retina = 2,
   message = FALSE,
   comment = NA
 )
 theme_set(theme_gray(base_size = 16))
+set.seed(123)
 ```
