@@ -18,7 +18,8 @@ output:
 ```{r setup, include=FALSE, echo=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")
-
+library(xaringanExtra)
+#xaringanExtra::use_scribble()
 library(tidyverse)
 library(cowplot)
 library(ggthemes)
@@ -721,7 +722,7 @@ ggplot(penguins) +
 --
 
 .small-font[
-The element `axis.text` has its own color set in the theme. Therefore it doesn't inherit from `text`.
+Das Element `axis.text` hat seine eigene Farbvariable im Theme. Es "erbt" also nicht die eigentschaft von `text`.
 ]
 
 ---

@@ -28,11 +28,11 @@ files <- dir(pattern = ".html")
 files <- files[!files %in% c("index.html")]
 rmds <- dir(pattern = ".Rmd")
 res <- "\n"
-for (i in 1:length(files)) {
+for (i in 2:length(files)) {
   matching_rmd <- str_replace(files[i], ".html", ".Rmd")
   title <- rmarkdown::yaml_front_matter(matching_rmd)$title
   res <- paste0(res, 
-                glue(" {i} - {title} [Link]({files[i]})<br/>\n")
+                glue(" {i-1} - {title} [Link]({files[i]})<br/>\n")
                 )
 }
 cat(res)

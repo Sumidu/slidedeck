@@ -23,6 +23,8 @@ library(tidyverse)
 library(lubridate)
 library(cowplot)
 library(here)
+library(xaringanExtra)
+xaringanExtra::use_scribble()
 # ggplot2 settings so plots scale well for slide size 
 theme_set(theme_gray(16)) # 16 for full width, 18 for half width 
 update_geom_defaults("point", list(size = 2)) # 2 for full width, 2.5 for half width

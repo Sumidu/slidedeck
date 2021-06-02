@@ -21,6 +21,8 @@ knitr::opts_chunk$set(comment = "")
 
 library(tidyverse)
 library(cowplot)
+library(xaringanExtra)
+xaringanExtra::use_scribble()
 library(colorspace)
 library(here)
 # ggplot2 settings so plots scale well for slide size 

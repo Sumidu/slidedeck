@@ -18,7 +18,8 @@ output:
 ```{r setup, include=FALSE, echo=FALSE}
 options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(comment = "")
-
+library(xaringanExtra)
+xaringanExtra::use_scribble()
 library(tidyverse)
 library(lubridate)
 library(cowplot)
