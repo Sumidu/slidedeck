@@ -31,17 +31,23 @@ update_geom_defaults("point", list(size = 2)) # 2 for full width, 2.5 for half w
 
 # Everest dataset
 everest <- read_csv(here("datasets", "everest.csv"))
+
+
+```
+
+```{r xaringanExtra-freezeframe, echo=FALSE}
+xaringanExtra::use_freezeframe()
 ```
 
 class: center middle
 
-# Let's imagine we're playing a game
+# Stellen wir uns vor, wir spielen ein Spiel
 
 ---
 
 class: center middle
 
-# The odds are in your favor:<br>You have a 90% chance of winning!
+# Die Chancen stehen gut für Sie:<br>Sie haben eine 97,2%ige Gewinnchance!
 
 ---
 class: center middle
@@ -63,44 +69,49 @@ Image by Wikiemdia user [Jahobr](https://commons.wikimedia.org/wiki/User:Jahobr)
 
 https://commons.wikimedia.org/wiki/File:Disappearing_dots.gif
 
+
+---
+background-image: url("figs/dice.gif")
+background-size: contain
+background-color: #cccccc
 ---
 
 class: center middle
 
-# Sorry, you lost.
+# Tut mir leid, Sie haben verloren.
 
 ---
 
 class: center middle
 
-# How does that make you feel?
+# Wie fühlen Sie sich dabei?
 
 ---
 
-## We are bad at judging uncertainty
+## Wir sind schlecht darin, Unsicherheit zu beurteilen
 
 --
 
-* You had a 10% chance of losing
+* Sie hatten eine 2.78%ige Chance zu verlieren
 
 --
 
-* One in ten playing this game will lose
+* Jeder Zehnte, der dieses Spiel spielt, wird verlieren
 
 --
 
-* 90% chance of winning is nowhere near a certain win
+* 97,2% Gewinnchance ist noch lange kein sicherer Sieg
 
 ---
 
-## It helps to visualize a set of possible outcomes
+## Es hilft, eine Reihe von möglichen Ergebnissen zu visualisieren
 
 .center[
 ```{r freq-waffle, fig.width = 4.5, fig.asp = 1, echo = FALSE, dev = "svg"}
 g <- expand.grid(x = 1:10, y = 1:10)
 
 set.seed(84520)
-data <- data.frame(ratio = c(0.99, 0.9, 0.7)) %>%
+data <- data.frame(ratio = c(0.9722, 0.9, 0.75)) %>%
   mutate(
     out = purrr::map(
       ratio,
@@ -147,7 +158,7 @@ data %>% filter(ratio == .9) %>%
 ```
 ]
 
-Possible outcomes from 100 individual games played
+Mögliche Ergebnisse aus 100 gespielten Einzelspielen
 
 ---
 
@@ -186,27 +197,27 @@ ggplot(data, aes(x, y, fill = value)) +
 
 --
 
-This type of visualization is called "frequency framing"
+Diese Art der Visualisierung wird "Frequency Framing" genannt.
 
 ---
 
-## Visualizing uncertainty of point estimates
+## Visualisierung der Unsicherheit von Punktschätzungen
 
 --
 
-- A point estimate is a single number, such as a mean
+- Eine Punktschätzung ist eine einzelne Zahl, z. B. ein Mittelwert
 
 --
 
-- Uncertainty is expressed as standard error, confidence interval, or credible interval
+- Die Unsicherheit wird als Standardfehler, Konfidenzintervall oder Glaubwürdigkeitsintervall ausgedrückt
 
 --
 
-- Important:<br>Don't confuse the uncertainty of a point estimate with the variation in the sample
+- Wichtig:<br>Verwechseln Sie nicht die Unsicherheit einer Punktschätzung mit der Variation in der Stichprobe
 
 ---
 
-## Key concepts of statistical sampling
+## Schlüsselkonzepte des statistischen Samplings
 
 .center[
 ```{r sampling-schematic1, echo = FALSE, fig.width = 7, fig.asp = 3/4, dev = "svg"}
@@ -235,7 +246,7 @@ df_annot <- data.frame(
   y = c(dnorm(0) * 0.4, sd_y[2] * 1.01, Inf), #sd_y[1] * 1.1
   hjust = c(0, 0, 0),
   vjust = c(1, 0.5, 1),
-  label = c("mean", "standard deviation", "population distribution")
+  label = c("Mittelwert", "Standardabweichung", "Verteilung der Grundgesamtheit")
 )
 
 p1 <- ggplot(df_norm, aes(x, y)) +
@@ -261,7 +272,7 @@ p1 <- ggplot(df_norm, aes(x, y)) +
     limits = c(-4, 4),
     expand = c(0, 0),
     breaks = 0, # workaround to fix missing axis line
-    name = "variable of interest"
+    name = "Variable von Interesse"
   ) +
   scale_y_continuous(
     breaks = NULL, name = NULL,
@@ -285,7 +296,7 @@ df_annot2 <- data.frame(
   y = c(-0.15, 0.12, .13 + 0.01, Inf),
   hjust = c(0, 0.3, 0, 0),
   vjust = c(0.5, 0.5, 0.5, 1),
-  label = c("sample mean", "observations", "sample standard deviation", "sample")
+  label = c("Stichprobenmittelwert", "Beobachtungen", "Stichprobenstandardabweichung", "Stichprobe")
 )
 
 p2 <- ggplot(df_sample, aes(x, y)) +
@@ -336,7 +347,7 @@ df_annot3 <- data.frame(
   y = c(dnorm(0, 0, 1/sqrt(n)) * 0.4, se_y[2] * 1.01, Inf),
   hjust = c(0, 0, 0),
   vjust = c(1, 0.5, 1),
-  label = c("mean of the sample means", "standard error", "sampling distribution of the mean")
+  label = c("Mittelwert der Stichprobenmittel", "Standardfehler", "Stichprobenverteilung des Mittelwertes")
 )
 
 p3 <- ggplot(df_samplingdist, aes(x, y)) +
@@ -362,7 +373,7 @@ p3 <- ggplot(df_samplingdist, aes(x, y)) +
     limits = c(-4, 4),
     expand = c(0, 0),
     breaks = 0, # workaround to fix missing axis line
-    name = "sample mean"
+    name = "Stichprobenmittelwert"
   ) +
   scale_y_continuous(
     breaks = NULL, name = NULL, 
@@ -389,7 +400,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Key concepts of statistical sampling
+## Schlüsselkonzepte des statistischen Samplings
 
 .center[
 ```{r sampling-schematic2, echo = FALSE, fig.width = 7, fig.asp = 3/4, dev = "svg"}
@@ -409,7 +420,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Key concepts of statistical sampling
+## Schlüsselkonzepte des statistischen Samplings
 
 .center[
 ```{r sampling-schematic3, echo = FALSE, fig.width = 7, fig.asp = 3/4, dev = "svg"}
@@ -428,10 +439,10 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Frequency interpretation of a confidence interval
+## Häufigkeitsinterpretation eines Konfidenzintervalls
 
 .center[
-<img src = "https://clauswilke.com/dataviz/visualizing_uncertainty_files/figure-html/ci-frequentist-expl-1.png" width = "500" />
+<img src = "figs/ci-frequentist-expl-1.png" width = "500" />
 ]
 
 ???
@@ -441,7 +452,7 @@ Figure from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reilly, 2019.
 
 ---
 
-## Example: Highest point reached on Everest in 2019
+## Beispiel: Höchster erreichter Punkt am Everest im Jahr 2019
 
 .center[
 ```{r everest-highest-point, echo = FALSE, fig.width = 8, fig.asp = 0.5, dev = "svg"}
@@ -459,44 +470,44 @@ CI_df <- data.frame(type = c(0.8, 0.95, 0.99)) %>%
   mutate(df = map(type, ~summary(emmeans(fit, ~ 1, options = list(level = .x))))) %>%
   unnest(cols = df) %>%
   select(type, estimate = emmean, std.error = SE, conf.low = lower.CL, conf.high = upper.CL) %>%
-  mutate(type = paste0(signif(100*type, 2), "% confidence interval"))
+  mutate(type = paste0(signif(100*type, 2), "% Konfidenzintervall"))
 
 CI_df <- rbind(
   CI_df,
   data.frame(
-    type = "standard error",
+    type = "Standardfehler",
     estimate = CI_df$estimate[1],
     std.error = CI_df$std.error[1],
     conf.low = CI_df$estimate[1] - CI_df$std.error[1],
     conf.high = CI_df$estimate[1] + CI_df$std.error[1]
   ),
   data.frame(
-    type = "standard deviation",
+    type = "Standardabweichung",
     estimate = mean(everest_2019$highpoint_metres),
     std.error = CI_df$std.error[1],
     conf.low = mean(everest_2019$highpoint_metres) - sd(everest_2019$highpoint_metres),
     conf.high = mean(everest_2019$highpoint_metres) + sd(everest_2019$highpoint_metres)
   ),
   data.frame(
-    type = "sample", estimate = mean(everest_2019$highpoint_metres), std.error = NA,
+    type = "Stichprobe", estimate = mean(everest_2019$highpoint_metres), std.error = NA,
     conf.low = NA, conf.high = max(everest_2019$highpoint_metres)
   )
 ) %>%
   mutate(
-    type = fct_relevel(factor(type), "sample", "standard deviation", "standard error"),
+    type = fct_relevel(factor(type), "Stichprobe", "Standardabweichung", "Standardfehler"),
     label = case_when(
-      type == "sample" ~ NA_character_,
-      type == "standard deviation" ~ "+/- standard deviation",
-      type == "standard error" ~ "+/- standard error",
+      type == "Stichprobe" ~ NA_character_,
+      type == "Standardabweichung" ~ "+/- Standardabweichung",
+      type == "Standardfehler" ~ "+/- Standardfehler",
       TRUE ~ as.character(type) #paste0("mean +/- ", type)
     )
   )
 
-label_x <- filter(CI_df, type == "standard deviation")$conf.high + 70
+label_x <- filter(CI_df, type == "Standardabweichung")$conf.high + 70
 
 ggplot(CI_df, aes(estimate, type)) + 
   geom_point(
-    data = everest_2019, aes(highpoint_metres, "sample"), 
+    data = everest_2019, aes(highpoint_metres, "Stichprobe"), 
     position = position_jitter(height = 0.6, width = 0.02, seed = 7843),
     color = point_color,
     size = 1.2,
@@ -513,13 +524,13 @@ ggplot(CI_df, aes(estimate, type)) +
     size = 16/.pt
   ) +
   geom_text(
-    data = filter(CI_df, type == "sample"),
+    data = filter(CI_df, type == "Stichprobe"),
     aes(conf.high + 100, label = type), 
     hjust = 0, nudge_y = 0.01,
     size = 16/.pt
   ) +
   geom_label(
-    data = filter(CI_df, type == "sample"),
+    data = filter(CI_df, type == "Stichprobe"),
     aes(estimate, label = "mean"),
     hjust = 0.2, vjust = 0, nudge_y = 0.1,
     size = 16/.pt,
@@ -548,16 +559,16 @@ ggplot(CI_df, aes(estimate, type)) +
 ```
 ]
 
-Includes only climbers and expedition members who **did not** summit
+Beinhaltet nur Bergsteiger und Expeditionsmitglieder, die **nicht** den Gipfel erreicht haben
 
 ---
 
-## Marginal effects example: Height reached on Everest
+## Beispiel für marginale Effekte: Erreichte Höhe am Everest
 
 --
 
-Average height reached relative to:<br>
-a male climber who climbed with oxygen, summited, and survived
+Durchschnittlich erreichte Höhe relativ zu:<br>
+ein männlicher Bergsteiger, der mit Sauerstoff kletterte, den Gipfel erreichte und überlebte
 
 --
 
@@ -594,9 +605,10 @@ evrst_gg <- as_tibble(summary(evrst_marg)) %>%
     factor = fct_reorder(
       fct_recode(
         factor,
-        "female climber" = "sexfemale",
-        "did not summit" = "successno",
-        "without oxygen" = "oxygen_usedwithout"
+        "weibliche Kletterin" = "sexfemale",
+        "Gipfel nicht erreicht" = "successno",
+        "Ohne Sauerstoff" = "oxygen_usedwithout",
+        "verstorben" = "died"
       ), AME
     )
   )
@@ -610,7 +622,7 @@ ggplot(evrst_gg) +
   geom_vline(xintercept = 0, color = "gray20") +
   geom_pointrange(color = "#0072B2", size = 1) +
   scale_x_continuous(
-    name = "average height reached below summit (meters)",
+    name = "durchschnittlich erreichte Höhe unterhalb des Gipfels (Meter)",
     limits = c(-1600, 200)
   ) +
   scale_y_discrete(name = NULL) +
@@ -621,9 +633,9 @@ ggplot(evrst_gg) +
 
 ---
 
-## Marginal effects example: Height reached on Everest
+## Beispiel für marginale Effekte: Erreichte Höhe am Everest
 
-Other visualization options: half-eye
+Andere Visualisierungsoptionen: half-eye Plot
 
 .center[
 ```{r everest_margins2, echo = FALSE, fig.width = 8, fig.asp = 0.5, dev = "svg"}
@@ -641,7 +653,7 @@ ggplot(evrst_gg) +
     point_size = 4
   ) +
   scale_x_continuous(
-    name = "average height reached below summit (meters)",
+    name = "durchschnittlich erreichte Höhe unterhalb des Gipfels (Meter)",
     limits = c(-1600, 200)
   ) +
   scale_y_discrete(name = NULL) +
@@ -653,9 +665,9 @@ ggplot(evrst_gg) +
 
 ---
 
-## Marginal effects example: Height reached on Everest
+## Beispiel für marginale Effekte: Erreichte Höhe am Everest
 
-Other visualization options: gradient interval
+Weitere Visualisierungsoptionen: Gradientenintervall
 
 .center[
 ```{r everest_margins3, echo = FALSE, fig.width = 8, fig.asp = 0.5, dev = "svg"}
@@ -673,7 +685,7 @@ ggplot(evrst_gg) +
     point_size = 4
   ) +
   scale_x_continuous(
-    name = "average height reached below summit (meters)",
+    name = "durchschnittlich erreichte Höhe unterhalb des Gipfels (Meter)",
     limits = c(-1600, 200)
   ) +
   scale_y_discrete(name = NULL) +
@@ -684,9 +696,9 @@ ggplot(evrst_gg) +
 
 ---
 
-## Marginal effects example: Height reached on Everest
+## Beispiel für marginale Effekte: Erreichte Höhe am Everest
 
-Other visualization options: quantile dotplot
+Andere Visualisierungsoptionen: Quantil-Dotplot
 
 .center[
 ```{r everest_margins4, echo = FALSE, fig.width = 8, fig.asp = 0.5, dev = "svg"}
@@ -705,7 +717,7 @@ ggplot(evrst_gg) +
     quantiles = 20
   ) +
   scale_x_continuous(
-    name = "average height reached below summit (meters)",
+    name = "durchschnittlich erreichte Höhe unterhalb des Gipfels (Meter)",
     limits = c(-1600, 200)
   ) +
   scale_y_discrete(name = NULL) +
@@ -716,9 +728,9 @@ ggplot(evrst_gg) +
 
 ---
 
-## Marginal effects example: Height reached on Everest
+## Beispiel für marginale Effekte: Erreichte Höhe am Everest
 
-Other visualization options: quantile dotplot
+Andere Visualisierungsoptionen: Quantil-Dotplot
 
 .center[
 ```{r everest_margins5, echo = FALSE, fig.width = 8, fig.asp = 0.5, dev = "svg"}
@@ -737,7 +749,7 @@ ggplot(evrst_gg) +
     quantiles = 7
   ) +
   scale_x_continuous(
-    name = "average height reached below summit (meters)",
+    name = "durchschnittlich erreichte Höhe unterhalb des Gipfels (Meter)",
     limits = c(-1600, 200)
   ) +
   scale_y_discrete(name = NULL) +
@@ -749,9 +761,9 @@ ggplot(evrst_gg) +
 
 ---
 
-## Marginal effects example: Height reached on Everest
+## Beispiel für marginale Effekte: Erreichte Höhe am Everest
 
-Other visualization options: quantile dotplot
+Andere Visualisierungsoptionen: Quantil-Dotplot
 
 .center[
 ```{r everest_margins6, echo = FALSE, fig.width = 8, fig.asp = 0.5, dev = "svg"}
@@ -770,7 +782,7 @@ ggplot(evrst_gg) +
     quantiles = 50
   ) +
   scale_x_continuous(
-    name = "average height reached below summit (meters)",
+    name = "durchschnittlich erreichte Höhe unterhalb des Gipfels (Meter)",
     limits = c(-1600, 200)
   ) +
   scale_y_discrete(name = NULL) +
@@ -781,12 +793,12 @@ ggplot(evrst_gg) +
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 --
 
 .small-font[
-Example: Relationship between life expectancy and GDP per capita
+Beispiel: Zusammenhang zwischen Lebenserwartung und Pro-Kopf-BIP
 ]
 
 .center[
@@ -802,9 +814,9 @@ gapminder %>%
   ggplot(aes(log(gdpPercap), lifeExp)) +
   geom_point(size = 0.5, color = "#0072B2") +
   geom_smooth(method = "lm", color = "black") +
-  xlab("log GDP per capita") +
+  xlab("log BIP pro Kopf") +
   scale_y_continuous(
-    name = "life expectancy",
+    name = "Lebenserwartung",
     breaks = c(40, 60, 80)
   ) +
   facet_grid(year ~ continent) +
@@ -815,10 +827,10 @@ gapminder %>%
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .small-font[
-Example: Relationship between life expectancy and GDP per capita
+Beispiel: Zusammenhang zwischen Lebenserwartung und Pro-Kopf-BIP
 ]
 
 .pull-left[
@@ -834,9 +846,9 @@ gapminder %>%
   ggplot(aes(log(gdpPercap), lifeExp)) +
   geom_point(size = 0.5, color = "#0072B2") +
   geom_smooth(method = "lm", color = "black") +
-  xlab("log GDP per capita") +
+  xlab("log BIP pro Kopf") +
   scale_y_continuous(
-    name = "life expectancy",
+    name = "Lebenserwartung",
     breaks = c(40, 60, 80)
   ) +
   facet_grid(year ~ continent) +
@@ -873,7 +885,7 @@ gapminder %>%
     breaks = c(1952, 1962, 1972, 1982, 1992, 2002)
   ) + 
   scale_y_continuous(
-    name = "regression slope"
+    name = "Regressionssteigung"
   ) +
   scale_color_manual(
     values = c(Africa = "#009E73", Americas = "#0072B2", Asia = "#D55E00", Europe = "#F0E442")
@@ -886,7 +898,18 @@ gapminder %>%
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
+
+.tiny-font[
+```{r}
+lm_data <- gapminder 
+lm_data
+```
+]
+
+---
+
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .tiny-font[
 ```{r}
@@ -894,12 +917,27 @@ lm_data <- gapminder %>%
   nest(data = -c(continent, year))
 
 lm_data
+
+```
+]
+
+---
+## Erstellen einer Grafik mit Fehlerbalken in R
+
+.tiny-font[
+```{r}
+lm_data <- gapminder %>%
+  nest(data = -c(continent, year))
+
+lm_data$data[[1]]
 ```
 ]
 
 ---
 
-## Making a plot with error bars in R
+
+
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .tiny-font[
 ```{r}
@@ -915,7 +953,7 @@ lm_data
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .tiny-font[ 
 ```{r}
@@ -932,7 +970,7 @@ lm_data
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .tiny-font[
 ```{r}
@@ -950,7 +988,7 @@ lm_data
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .tiny-font[
 ```{r}
@@ -970,7 +1008,7 @@ lm_data
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .tiny-font[
 ```{r}
@@ -991,7 +1029,7 @@ lm_data
 
 ---
 
-## Making a plot with error bars in R
+## Erstellen einer Grafik mit Fehlerbalken in R
 
 .tiny-font.pull-left[
 ```{r gapminder-model, eval = FALSE}
@@ -1023,11 +1061,11 @@ Figure and code idea from [Kieran Healy. Data Visualization: A practical introdu
 
 ---
 
-## Half-eyes, gradient intervals, etc
+## Half-Eyes, Gradientenintervalle, etc.
 
 --
 
-The **ggdist** package provides many different visualizations of uncertainty
+Das Paket **ggdist** bietet viele verschiedene Unsicherheitsvisualisierungen
 
 --
 
@@ -1059,9 +1097,9 @@ lm_data %>%
 
 ---
 
-## Half-eyes, gradient intervals, etc
+## Half-Eyes, Gradientenintervalle, etc.
 
-The **ggdist** package provides many different visualizations of uncertainty
+Das Paket **ggdist** bietet viele verschiedene Unsicherheitsvisualisierungen
 
 .tiny-font.pull-left[
 ```{r gapminder-gradinterval, eval = FALSE}
@@ -1092,9 +1130,10 @@ lm_data %>%
 
 ---
 
-## Half-eyes, gradient intervals, etc
+## Half-Eyes, Gradientenintervalle, etc.
 
-The **ggdist** package provides many different visualizations of uncertainty
+Das Paket **ggdist** bietet viele verschiedene Unsicherheitsvisualisierungen
+
 
 .tiny-font.pull-left[
 ```{r gapminder-quantiledots, eval = FALSE}
@@ -1126,9 +1165,10 @@ lm_data %>%
 
 ---
 
-## Half-eyes, gradient intervals, etc
+## Half-Eyes, Gradientenintervalle, etc.
 
-The **ggdist** package provides many different visualizations of uncertainty
+Das Paket **ggdist** bietet viele verschiedene Unsicherheitsvisualisierungen
+
 
 .tiny-font.pull-left[
 ```{r gapminder-quantiledots2, eval = FALSE}
@@ -1161,9 +1201,9 @@ lm_data %>%
 
 ---
 
-## Further reading
+## Weitere Literatur
 
-- Fundamentals of Data Visualization: [Chapter 16: Visualizing uncertainty](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
+- Fundamentals of Data Visualization: [Kapitel 16: Visualizing uncertainty](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
 - Data Visualization—A Practical Introduction: [Chapter 6.6: Grouped analysis and list columns](https://socviz.co/modeling.html#grouped-analysis-and-list-columns)
 - Data Visualization—A Practical Introduction: [Chapter 6.7: Plot marginal effects](https://socviz.co/modeling.html#plot-marginal-effects)
 - **ggdist** reference documentation: https://mjskay.github.io/ggdist/index.html
