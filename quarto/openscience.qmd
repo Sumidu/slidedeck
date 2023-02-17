@@ -1,0 +1,131 @@
+---
+title: "Automating Open Science. Using digital tools to assist research and communication"
+author: 
+  - name: "André Calero Valdez"
+    url: https://calerovaldez.com
+    affiliation: University of Lübeck
+    affiliation-url: https://www.imis.uni-luebeck.de
+citation:
+  url: https://example.com/summarizing-output
+bibliography: references.bib
+format: 
+  pptx: 
+    footer: "Open Science Initiative Lübeck - Feb 23rd 2023"
+    reference-doc: template_imis.pptx
+    logo: "logo.png"
+    date: "02/23/2023"
+  revealjs:
+    #theme: simple
+    logo: "logo.png"
+    footer: "Open Science Initiative Lübeck - Feb 23rd 2023"
+    code-link: true
+    code-fold: true
+  beamer:
+    footer: "Beamer Version"  
+  pdf:
+    lang: en
+---
+
+
+## Agenda
+
+
+::: {.incremental}
+
+- Open Science Framework
+- Quarto/Pandoc
+
+:::
+
+# new section
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+# Quarto
+
+## Quarto has column support
+
+:::: {.columns}
+
+::: {.column width="40%"}
+contents...
+:::
+
+::: {.column width="60%"}
+contents...
+:::
+
+::::
+
+
+## Showing code
+
+```{r}
+1+2
+```
+
+## Speaker notes
+
+Press `s` to enter presentation mode.
+
+::: {.notes}
+Speaker notes go here. And you can save online.
+:::
+
+## More on Quarto
+
+https://quarto.org/docs/presentations/revealjs/demo/ 
+
+::: {.callout-tip}
+## Tip With Caption
+
+This is an example of a callout with a caption.
+:::
+
+## References
+
+Citation [@calero2020making]
+
+
+## Air Quality
+
+@fig-airquality further explores the impact of temperature on ozone level.
+
+```{r}
+#| label: fig-airquality
+#| fig-cap: Temperature and ozone level.
+#| warning: false
+
+library(ggplot2)
+
+ggplot(airquality, aes(Temp, Ozone)) + 
+  geom_point() + 
+  geom_smooth(method = "loess")
+```
+
+  
+---
+
+![Orcid](images/orcid.png){width=80%}
+
+## {background-video="images/osf_setupproject.mov" background-size="contain"}
+
+
+## References
