@@ -62,7 +62,7 @@ tooltip_css <- "font-size:20px;padding:2px 4px 2px 4px;background:black;color:wh
 
 ```
 
-## Interactivity can make a plot more informative
+## Interaktivität kann einen Plot informativer machen
 
 .center[
 ```{r iris-scatter-three-shapes, echo = FALSE}
@@ -133,7 +133,7 @@ girafe(
 ]
 
 .absolute-bottom-right.small-font[
-hover over the data points
+Mauszeiger über die Punkte bewegen
 ]
 
 ???
@@ -142,7 +142,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## You probably want to highlight the selected points ...
+## Die Auswahl sollte hervorgehoben werden ...
 
 .center[
 ```{r iris-scatter-three-shapes-hover, echo = FALSE}
@@ -214,7 +214,7 @@ girafe(
 ]
 
 .absolute-bottom-right.small-font[
-hover over the data points
+Mauszeiger über die Punkte bewegen
 ]
 
 
@@ -225,7 +225,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## ... and/or de-emphasize all others
+## ... und/oder alle anderen ausgeblendet
 
 .center[
 ```{r iris-scatter-three-shapes-hover2, echo = FALSE}
@@ -303,7 +303,7 @@ girafe(
 ]
 
 .absolute-bottom-right.small-font[
-hover over the data points
+Mauszeiger über die Punkte bewegen
 ]
 
 ???
@@ -312,7 +312,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## You can combine interactivity with explicit labels
+## Interaktivität mit expliziten Labels kombinieren
 
 .center[
 ```{r texas-counties-log, echo = FALSE, message = FALSE, fig.width = 8, fig.asp = 0.6, dev = "svg"}
@@ -370,7 +370,7 @@ girafe(
 ]
 
 .absolute-bottom-right.small-font[
-hover over the data points
+Mauszeiger über die Punkte bewegen
 ]
 
 ???
@@ -379,7 +379,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Also consider linking to further info
+## Mit weiteren Informationen oder Seiten verlinken
 
 ```{r US_states_clickthrough, echo = FALSE}
 US_map <- US_states %>%
@@ -409,12 +409,12 @@ girafe(
 ```
 
 .absolute-bottom-right.small-font[
-click on one of the states
+Auf die Bundesstaaten klicken
 ]
 
 ---
 
-## Highlight across two plots for added context
+## Hervorheben in zwei verschiedenen Plots
 
 ```{r tx_income_combined, echo = FALSE}
 texas_scatter <- tx_counties %>%
@@ -429,14 +429,14 @@ texas_scatter <- tx_counties %>%
     color = "#0072B2", fill = "#0072B280"
   ) +
   scale_y_continuous(
-    name = "Median income (USD)",
+    name = "Median Einkommen (USD)",
     limits = c(21000, 97000),
     breaks = c(40000, 60000, 80000),
     labels = scales::dollar_format(),
     expand = c(0, 0)
   ) +
   scale_x_log10(
-    name = "Number of inhabitants",
+    name = "Anzahl Einwohner",
     limits = c(300, 4100000),
     breaks = c(1e2, 1e3, 1e4, 1e5, 1e6),
     labels = expression(10^2, 10^3, 10^4, 10^5, 10^6)
@@ -471,14 +471,12 @@ girafe(
 ```
 
 ---
-
 class: center middle
 
-## Interactive plots in R
+## Interaktive Plots in R
 
 ---
-
-## We can make plots interactive with the **ggiraph** package
+## Mit dem **ggiraph** Paket können wir Plots interaktiv machen
 
 .tiny-font.pull-left.width-50[
 ```{r iris-no-girafe-demo, eval = FALSE}
@@ -500,14 +498,14 @@ iris_scatter
 ```
 
 .small-font[
-regular **ggplot2** plot:  
-hovering does nothing
+einfacher **ggplot2** Plot:  
+Hovern macht nichts
 ]
 ]
 
 ---
 
-## We can make plots interactive with the **ggiraph** package
+## Mit dem **ggiraph** Paket können wir Plots interaktiv machen
 
 .tiny-font.pull-left.width-50[
 ```{r iris-girafe-demo, eval = FALSE}
@@ -535,14 +533,14 @@ girafe(                        #<<
 ```
 
 .small-font[
-**ggiraph** version:  
-hovering displays species names
+**ggiraph** Version:  
+Hovern zeigt den Speziesnamen an
 ]
 ]
 
 ---
 
-## Styling happens via Cascading Style Sheets (CSS)
+## Anpassen geschieht über Cascading Style Sheets (CSS)
 
 .tiny-font.pull-left.width-50[
 ```{r iris-girafe-demo2, eval = FALSE}
@@ -575,27 +573,27 @@ css = "background: #F5F5F5; color: #191970;" #<<
 ```
 
 .small-font[
-**ggiraph** version:  
-hovering displays species names
+**ggiraph** Version:  
+Hovern zeigt Speziesnamen an
 ]
 
 ]
 
 ---
 
-## Interlude: A brief intro to CSS
+## Interludium: A Kurzeinführung in CSS
 
 --
 
-CSS is the language used to style web pages
+CSS ist *die* Sprache zur Gestaltung von Webseiten
 
 --
 
-Many online tutorials, e.g.: https://www.w3schools.com/css/default.asp
+Es gibt vielen Tutorials online, z.B.: https://www.w3schools.com/css/default.asp
 
 ---
 
-## Select multiple points at once with `data_id` aesthetic
+## Mehrere Punkt auf einmal auswählen mit der `data_id` Aesthetic
 
 .tiny-font.pull-left.width-50[
 ```{r iris-girafe-demo3, eval = FALSE}
@@ -627,7 +625,7 @@ girafe(
 
 ---
 
-## Select multiple points at once with `data_id` aesthetic
+## Mehrere Punkt auf einmal auswählen mit der `data_id` Aesthetic
 
 .tiny-font.pull-left.width-50[
 ```{r iris-girafe-demo4, eval = FALSE}
@@ -659,13 +657,13 @@ girafe(
 ```{r iris-girafe-demo4-out, ref.label="iris-girafe-demo4", echo=FALSE, warning=FALSE}
 ```
 
-Again, styling via CSS
+Anpassung wieder mit CSS
 
 ]
 
 ---
 
-## Interactive map example
+## Interaktive Beispielkarte
 
 .tiny-font[
 ```{r eval = FALSE, echo = TRUE}
@@ -676,7 +674,7 @@ US_states <- readRDS(url("https://wilkelab.org/SDS375/datasets/US_states.rds"))
 
 ---
 
-## Interactive map example
+## Interaktive Beispielkarte
 
 .tiny-font[
 ```{r eval = FALSE, echo = TRUE}
@@ -696,7 +694,7 @@ print(US_states, width = 200)
 
 ---
 
-## Interactive map example
+## Interaktive Beispielkarte
 
 .tiny-font.pull-left.width-50[
 ```{r US_states_highlight-demo, eval = FALSE}
@@ -723,7 +721,7 @@ girafe(
 
 ---
 
-## Interactive map example
+## Interaktive Beispielkarte
 
 .tiny-font.pull-left.width-50[
 ```{r US_states_clickthrough-demo, eval = FALSE}
@@ -757,16 +755,16 @@ girafe(
 
 .small-font[
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Click to open a state's wikipedia page
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Klicken um die wikipedia-Seite zu öffnen
 ]
 ]
 
 ---
 
-## Further reading
+## Weitere Literatur
 
-- **ggiraph** documentation: [Using **ggiraph**](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html)
-- **ggiraph** documentation: [Function reference](https://davidgohel.github.io/ggiraph/reference/index.html)
+- **ggiraph** Dokumentation: [Using **ggiraph**](https://davidgohel.github.io/ggiraph/articles/offcran/using_ggiraph.html)
+- **ggiraph** Dokumentation: [Function reference](https://davidgohel.github.io/ggiraph/reference/index.html)
 - MDN Web Docs: [Learn to style HTML using CSS
 ](https://developer.mozilla.org/en-US/docs/Learn/CSS)
 - w3schools.com: [CSS Tutorial](https://www.w3schools.com/css/default.asp)

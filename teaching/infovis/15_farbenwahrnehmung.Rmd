@@ -44,25 +44,25 @@ theme_colorspace <- function(size = 12) {
 
 class: center middle
 
-## How does a computer represent color?
+## Wie stellt der Computer Farben dar?
 
 ---
 
-## The RGB color space
+## Der RGB-Farbraum
 
 .pull-left.width-50[
-- red R (0-255): amount of red light
+- rot R (0-255): Menge an rotem Licht
 
-- green G (0-255): amount of green light
+- grün G (0-255): Menge an grünem Licht
 
-- blue B (0-255): amount of blue light
+- blau B (0-255): Menge an blauem Licht
 ]
 
 --
 
 .pull-right.move-down-1em[
 
-R | G | B | hex code | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+R | G | B | hex code | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Farbe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ---| --- | --- | --- | ---
 0  | 0 | 0 | #000000 | <div style = "background-color: #000000;">&nbsp;</div>
 255  | 0 | 0 | #FF0000 | <div style = "background-color: #FF0000;">&nbsp;</div>
@@ -74,7 +74,7 @@ R | G | B | hex code | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color&nbsp;&nbsp;&nbs
 
 ---
 
-## The RGB color space
+## Der RGB-Farbraum
 
 .center[
 ```{r rgb-viz, echo = FALSE, cache = params$cache, fig.width = 10, fig.asp = .5, dev = "svg"}
@@ -91,19 +91,19 @@ rgb_by_b %>%
   geom_raster(na.rm = TRUE) +
   scale_fill_identity() +
   scale_x_continuous(
-    name = "red R",
+    name = "rot R",
     breaks = (0:5)*50,
     labels = c("0", "", "100", "", "200", "")
   ) +
   scale_y_continuous(
-    name = "green G",
+    name = "grün G",
     breaks = (0:5)*50,
     labels = c("0", "", "100", "", "200", "")
   ) +
   facet_wrap(
     vars(B),
     ncol = 4,
-    labeller = as_labeller(function(x) glue::glue("blue B = {x}"))
+    labeller = as_labeller(function(x) glue::glue("blau B = {x}"))
   ) +
   coord_fixed(expand = FALSE) +
   theme_colorspace() +
@@ -114,22 +114,22 @@ rgb_by_b %>%
 ---
 class: center middle
 
-## Humans cannot reason well about the RGB color space
+## Menschen können nicht gut über RGB Farbräume nachdenken
 
 ---
 
-## The HSV color space
+## Der HSV-Farbraum
 
 .pull-left[
 
 - hue H (0-360):  
-  hue of the color
+  hue - Farbton
 
 - saturation S (0-1):  
-  colorfulness relative to the brightness of the color
+  Sättigung relativ zur Helligkeit der Farbe
 
 - value V (0-1):  
-  subjective perception of amount of light emitted
+  Subjektive Warhnehmung der Menge an Licht
 ]
 
 .pull-right.move-up-1em[
@@ -171,7 +171,7 @@ hsv_by_h %>%
 
 ---
 
-## The HSV color space
+## Der HSV-Farbraum
 
 .center[
 ```{r hsv-viz, echo = FALSE, cache = params$cache, fig.width = 10, fig.asp = .5, dev = "svg"}
@@ -202,17 +202,17 @@ hsv_by_h %>%
 
 ---
 
-## The HLS color space
+## Der HLS Farbraum
 
 .pull-left[
 - hue H (0-360):  
-  hue of the color
+  Farbton
 
 - lightness L (0-1):  
-  brightness relative to the brightness of a similarly illuminated white
+  Helligkeit relativ zur Helligkeit eines ähnlich hellen Weißtons
 
 - saturation S (0-1):  
-  colorfulness relative to the brightness of the color
+  Sättigung relativ zur Helligkeit der Farbe
 ]
 
 .pull-right.move-up-1em[
@@ -254,7 +254,7 @@ hls_by_h %>%
 
 ---
 
-## The HLS color space
+## Der HLS-Farbraum
 
 .center[
 ```{r hls-viz, echo = FALSE, cache = params$cache, fig.width = 10, fig.asp = .5, dev = "svg"}
@@ -286,22 +286,22 @@ hls_by_h %>%
 ---
 class: center middle
 
-## Humans cannot reason well about HSV or HLS either
+## Menschen können weder in HSV noch in HLS gut denken
 
 ---
 
-## The Luv color space
+## Der LUV-Farbraum
 
 .pull-left.width-50[
 
 - luminance L (0-100):  
-  amount of light emitted
+  Menge an Licht
 
 - green/red axis u (approx. -100 to 100):  
-  amount of green vs. red
+  grün/rot Achse U
 
 - blue/yellow axis v (approx. -100 to 100):  
-  amount of blue vs. yellow
+  blau/gelb Achse V
 ]
 
 .pull-right.move-up-2em[
@@ -342,7 +342,7 @@ luv_by_l %>%
 
 ---
 
-## The Luv color space
+## Der LUV-Farbraum
 
 .center[
 ```{r luv-viz, echo = FALSE, cache = params$cache, fig.width = 10, fig.asp = .5, dev = "svg"}
@@ -372,7 +372,7 @@ luv_by_l %>%
 
 ---
 
-## The HCL color space: polar Luv
+## Der HCL-Farbraum: Polarkoordinaten in LUV
 
 .center.move-up-1em[
 ```{r hcl-viz-single, echo = FALSE, cache = params$cache, fig.width = 5.5, fig.asp = 1, dev = "svg"}
@@ -442,7 +442,7 @@ luv_by_l %>%
 
 ---
 
-## The HCL color space: polar Luv
+## Der HCL-Farbraum: Polarkoordinaten LUV
 
 .move-up-1em.center[
 ```{r cl-planes, echo = FALSE, cache = params$cache, fig.width = 9, fig.asp = .6, dev = "svg"}
@@ -481,7 +481,7 @@ hcl_by_h %>%
 
 ---
 
-## We can explore HCL colors in R
+## Wir können HCL Farben in R erkunden
 
 ```{r eval = FALSE}
 colorspace::choose_color()
@@ -501,12 +501,12 @@ colorspace::choose_color()
 
 ---
 
-## One important point to remember: Avoid high chroma
+## Wichtige Anmerkung: Hohe chroma-Werte eher meiden
 
 --
 
 .pull-left.width-45[
-High chroma: Toys
+High chroma: Spielzeuge
 
 <img src = "color-spaces_files/toys-image.jpg", width = 100%, style = "box-shadow: 3px 5px 3px 1px #00000080;"></img>
 ]
@@ -518,7 +518,7 @@ High chroma: Toys
 --
 
 .pull-right.width-45[
-Low chroma: Elegance
+Low chroma: Eleganz
 
 <img src = "color-spaces_files/home-interior.jpg", width = 95%, style = "box-shadow: 3px 5px 3px 1px #00000080;"></img>
 ]
@@ -529,47 +529,47 @@ Low chroma: Elegance
 
 ---
 
-## Always be aware of color-vision deficiency
+## Einschränkungen der Farbsichtigkeit
 
-5%–8% of men are color blind!
+5%–8% der Männer sind Farbenblind
 
 --
 
-<img src = "https://clauswilke.com/dataviz/pitfalls_of_color_use_files/figure-html/red-green-cvd-sim-1.png", width = 100%></img>
+<img src = "color-spaces_files/red-green-cvd-sim-1.png", width = 100%></img>
 
-Red-green color-vision deficiency is the most common
-
----
-
-## Always be aware of color-vision deficiency
-
-5%–8% of men are color blind!
-
-<img src = "https://clauswilke.com/dataviz/pitfalls_of_color_use_files/figure-html/blue-green-cvd-sim-1.png", width = 100%></img>
-
-Blue-green color-vision deficiency is rare but does occur
+Rot-grün Blindheit ist die häufigst Form
 
 ---
 
-## Always be aware of color-vision deficiency
+## Einschränkungen der Farbsichtigkeit
 
-Choose colors that can be distinguished with CVD
+5%–8% der Männer sind Farbenblind
 
-<img src = "https://clauswilke.com/dataviz/pitfalls_of_color_use_files/figure-html/PiYG-cvd-sim-1.png", width = 100%></img>
+<img src = "color-spaces_files/blue-green-cvd-sim-1.png", width = 100%></img>
+
+Blau-grün Blindheit ist selten, aber tritt auf
 
 ---
 
-## CVD is worse for thin lines and tiny dots
+## Einschränkungen der Farbsichtigkeit
+
+Farben wählen die auch mit Einschränkung der Farbsicht unterschieden werden können.
+
+<img src = "color-spaces_files/PiYG-cvd-sim-1.png", width = 100%></img>
+
+---
+
+## Farbenblindheit ist schlimmer für dünne Linien und Punkte
 
 .move-up-1em.center[
-<img src = "https://clauswilke.com/dataviz/pitfalls_of_color_use_files/figure-html/colors-thin-lines-1.png", width = 65%></img>
+<img src = "color-spaces_files/colors-thin-lines-1.png", width = 65%></img>
 ]
 
 ---
 
-## Further reading
+## Weitere Literatur
 
-- Fundamentals of Data Visualization: [Chapter 19: Common pitfalls of color use](https://clauswilke.com/dataviz/color-pitfalls.html)
+- Fundamentals of Data Visualization: [Kapitel 19: Common pitfalls of color use](https://clauswilke.com/dataviz/color-pitfalls.html)
 - Wikipedia: [HSL and HSV](https://en.wikipedia.org/wiki/HSL_and_HSV)
 - **colorspace** package documentation: [Color Spaces](https://colorspace.r-forge.r-project.org/articles/color_spaces.html)
 - **colorspace** package documentation: [Apps for Choosing Colors and Palettes Interactively](https://colorspace.r-forge.r-project.org/articles/hclwizard.html)

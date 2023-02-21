@@ -96,7 +96,7 @@ class: center middle
 
 --
 
-* Jeder Zehnte, der dieses Spiel spielt, wird verlieren
+* Jeder 35te, der dieses Spiel spielt, wird verlieren
 
 --
 

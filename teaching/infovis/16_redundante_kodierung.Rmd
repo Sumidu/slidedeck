@@ -78,7 +78,7 @@ tx_counties <- US_census %>%
   extract(name, "county", regex = "(.+) County")
 ```
 
-## Color encoding alone is not always sufficient
+## Farbkodierung alleine reicht häufig nicht aus
 
 .center[
 ```{r iris-scatter-one-shape, cache = params$cache, echo = FALSE, fig.width = 7, fig.asp = 0.618, dev = "svg"}
@@ -129,7 +129,7 @@ stamp_bad(iris_scatter)
 ```
 ]
 
-Iris virginica and Iris versicolor are difficult to tell apart
+Iris virginica und Iris versicolor sind schwer zu unterscheiden
 
 
 ???
@@ -165,7 +165,7 @@ cvd_sim2(iris_scatter_small, label_size = 14, label_y = .98, scale = .95)
 ]
 
 .absolute-bottom-left[
-CVD simulation of preceding figure
+Verschiedene simulierte Farbenblindheiten der selben Abbildung
 ]
 
 ???
@@ -174,7 +174,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Using both colors and shapes helps
+## Farben und Formen zu nutzen hilft
 
 .center[
 ```{r iris-scatter-three-shapes, cache = params$cache, echo = FALSE, fig.width = 7, fig.asp = 0.618, dev = "svg"}
@@ -227,7 +227,7 @@ iris_scatter2
 ```
 ]
 
-Notice also that color assignment has been switched
+Die Farbzuordnung wurde auch getauscht
 
 ???
 
@@ -261,7 +261,7 @@ cvd_sim2(iris_scatter2_small, label_size = 14, label_y = .98, scale = .95)
 ]
 
 .absolute-bottom-left[
-CVD simulation of preceding figure
+Verschiedene simulierte Farbenblindheiten der selben Abbildung
 ]
 
 ???
@@ -271,7 +271,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Pay attention to legend order
+## Reihenfolge der Legende beachten
 
 .center[
 ```{r tech-stocks-bad-legend, cache = params$cache, echo = FALSE, fig.width = 7, fig.asp = 0.618, dev = "svg"}
@@ -306,7 +306,7 @@ stamp_bad(
 ```
 ]
 
-Legend order **does not** match visual order of the lines
+Reihenfolge der Legende **passt nicht** zu der visuellen Anordnung der Linien
 
 ???
 
@@ -314,7 +314,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Pay attention to legend order
+## Reihenfolge der Legende beachten
 
 .center[
 ```{r tech-stocks-good-legend, cache = params$cache, echo = FALSE, fig.width = 7, fig.asp = 0.618, dev = "svg"}
@@ -349,7 +349,7 @@ price_plot_base_good +
 ```
 ]
 
-Legend order **does** match visual order of the lines
+Reihenfolge der Legende **passt** zu der visuellen Anordnung der Linien
 
 ???
 
@@ -377,7 +377,7 @@ cvd_sim2(price_plot_good_small, label_size = 14, label_y = .98, scale = .95)
 ]
 
 .absolute-bottom-left[
-CVD simulation of preceding figure
+Verschiedene simulierte Farbenblindheiten der selben Abbildung
 ]
 
 ???
@@ -386,7 +386,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Even better: Don't use a legend at all
+## Noch besser: Gar keine Legende nutzen
 
 .center[
 ```{r tech-stocks-good-no-legend, cache = params$cache, echo = FALSE, fig.width = 7, fig.asp = 0.618, dev = "svg"}
@@ -428,7 +428,7 @@ ggplot(tech_stocks, aes(x = date, y = price_indexed, color = company)) +
 ```
 ]
 
-This technique is called "direct labeling"
+Diese Technik heißt "direct labeling"
 
 ???
 
@@ -436,7 +436,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Direct labeling the Iris scatter plot
+## Direct labeling des Iris Scatterplots
 
 .center[
 ```{r iris-scatter-with-ellipses, cache = params$cache, echo = FALSE, fig.width = 5.5, fig.asp = 0.8, dev = "svg"}
@@ -502,7 +502,7 @@ ggplot(
 ```
 ]
 
-The ellipses help guide the eye
+Die Ellipsen führen das Auge
 
 ???
 
@@ -510,7 +510,7 @@ Figure redrawn from [Claus O. Wilke. Fundamentals of Data Visualization. O'Reill
 
 ---
 
-## Label only a subset if there are too many items to label
+## Wenn zu viele Items zu labeln wären, eine Teilmenge labeln
 
 .center[
 ```{r texas-counties-log, cache = params$cache, echo = FALSE, message = FALSE, fig.width = 8, fig.asp = 0.6, dev = "svg"}
@@ -537,13 +537,13 @@ ggplot(tx_counties_labels, aes(x = index, y = popratio)) +
   ) +
   scale_y_log10(
     breaks = c(.01, .1, 1, 10, 100),
-    name = "population number / median",
+    name = "Bevälkerungsanzahl / Median",
     labels = expression(10^-2, 10^-1, 10^0, 10^1, 10^2)
   ) +
   scale_x_continuous(
     limits = c(.5, nrow(tx_counties) + .5), expand = c(0, 0),
     breaks = NULL, #c(1, 50*(1:5)),
-    name = "Texas counties, from most to least populous"
+    name = "Texas counties, von geringer zu hoher Bevölkerung"
   ) +
   theme_minimal_hgrid(14) +
   theme(axis.line = element_blank())
@@ -563,11 +563,11 @@ class: center middle
 
 ---
 
-## 1. Secondary axis trick
+## 1. Trick Sekundärachse
 
 .pull-left[
 
-The raw input data:
+Die Rohdaten:
 .tiny-font[
 ```{r}
 tech_stocks
@@ -578,7 +578,7 @@ tech_stocks
 
 .pull-right[
 
-Most recent values only:
+Nur die neusten Daten:
 .tiny-font[
 ```{r}
 tech_stocks_last <- tech_stocks %>%
@@ -591,7 +591,7 @@ tech_stocks_last
 
 ---
 
-## 1. Secondary axis trick
+## 1. Trick Sekundärachse
 
 .tiny-font.pull-left.width-50[
 ```{r tech-stock-sec-axis, eval = FALSE}
@@ -617,7 +617,7 @@ ggplot(tech_stocks) +
 ```
 ]
 
-Side remark: The default legend order doesn't match the data
+Anmerkung: Die default Legende passt nicht zu den Daten
 
 
 ---
@@ -656,10 +656,10 @@ ggplot(tech_stocks) +
 
 ---
 
-## 2. Manual labeling with `geom_text()`
+## 2. Manuelles labeling mit `geom_text()`
 
 
-The raw input data:
+Die Rohdaten:
 .tiny-font[
 ```{r}
 iris
@@ -668,9 +668,9 @@ iris
 
 ---
 
-## 2. Manual labeling with `geom_text()`
+## 2. Manuelles labeling mit `geom_text()`
 
-Manually create table with label positions:
+Tabelle mit Label-Positionen händisch anlegen:
 
 .tiny-font[
 ```{r}
@@ -690,7 +690,7 @@ iris_labels
 
 ---
 
-## 2. Manual labeling with `geom_text()`
+## 2. Manuelles labeling mit `geom_text()`
 
 .xtiny-font.pull-left.width-50[
 ```{r iris-manual, eval = FALSE}
@@ -708,7 +708,7 @@ ggplot(iris) +
 
 ---
 
-## 2. Manual labeling with `geom_text()`
+## 2. Manuelles labeling mit `geom_text()`
 
 .xtiny-font.pull-left.width-50[
 ```{r iris-manual2, eval = FALSE}
@@ -735,7 +735,7 @@ ggplot(iris) +
 
 ---
 
-## 2. Manual labeling with `geom_text()`
+## 2. Manuelles labeling mit `geom_text()`
 
 .xtiny-font.pull-left.width-50[
 ```{r iris-manual3, eval = FALSE}
@@ -763,7 +763,7 @@ ggplot(iris) +
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r}
@@ -777,7 +777,7 @@ mtcars_named
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r mtcars-plot1, eval = FALSE}
@@ -793,7 +793,7 @@ ggplot(mtcars_named, aes(weight, mpg)) +
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r mtcars-plot2, eval = FALSE}
@@ -810,7 +810,7 @@ ggplot(mtcars_named, aes(weight, mpg)) +
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r mtcars-plot3, eval = FALSE}
@@ -828,7 +828,7 @@ ggplot(mtcars_named, aes(weight, mpg)) +
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r mtcars-plot4, eval = FALSE}
@@ -850,7 +850,7 @@ ggplot(mtcars_named, aes(weight, mpg)) +
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r mtcars-plot5, eval = FALSE}
@@ -878,7 +878,7 @@ mtcars_named %>%
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r mtcars-plot6, eval = FALSE}
@@ -906,7 +906,7 @@ mtcars_named %>%
 
 ---
 
-## 3. Automatic labeling with `geom_text_repel()`
+## 3. Automatisches labeling mit `geom_text_repel()`
 
 .tiny-font.pull-left[
 ```{r mtcars-plot7, eval = FALSE}
@@ -932,12 +932,12 @@ mtcars_named %>%
 ```
 ]
 
-`box.padding` controls how far labels are placed from data points
+`box.padding` steuert wie weit die Labels ovn den Daten platziert werden
 ---
 
-## Further reading
+## Weitere Literatur
 
-- Fundamentals of Data Visualization: [Chapter 20: Redundant coding](https://clauswilke.com/dataviz/redundant-coding.html)
+- Fundamentals of Data Visualization: [Kapitel 20: Redundant coding](https://clauswilke.com/dataviz/redundant-coding.html)
 - **ggplot2** reference documentation: [`geom_text()`](https://ggplot2.tidyverse.org/reference/geom_text.html)
 - **ggrepel** documentation: [Examples](https://ggrepel.slowkow.com/articles/examples.html#examples-1)
 - **ggrepel** reference documentation:

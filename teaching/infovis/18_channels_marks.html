@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Channels and Marks</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. André Calero Valdez " />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/d3/d3.min.js"></script>
+    <link href="libs/colorbrewer/colorbrewer.css" rel="stylesheet" />
+    <script src="libs/colorbrewer/colorbrewer.js"></script>
+    <link href="libs/streamgraph/streamgraph.css" rel="stylesheet" />
+    <script src="libs/streamgraph-binding/streamgraph.js"></script>
+    <link rel="stylesheet" href="hcic.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, title-slide
+
+# Channels and Marks
+## Informationsvisualisierung und Sprache
+### <strong>Dr. André Calero Valdez</strong><br />
+### letzte Änderung: 2021-06-29
+
+---
+
+
+
+
+## Zielpublikum identifizieren
+
+### Wir kennen und verstehen unsere Datenattribute und Messniveaus
+
+- Categorical 
+- Ordered 
+- Quantitative
+
+**Ziel: Wir wollen die effektivste Visualisierung wählen**
+
+---
+
+## Channels und Marks Theorie
+
+
+- Channels: 
+  - Position
+  - Farbe 
+  - Form
+- Marks: 
+ - Punkte 
+ - Linien 
+ - Flächen
+ 
+ Channels entsprechen Ästhetiken und Marks entsprechen Geomen in der ggplot-Welt
+
+**Wie wählt man Channels und Marks basierend auf Datenattributen und Aufgabe?**
+
+---
+## Mapping von Channels und Marks
+
+
+
+|manufacturer |model      | displ| year| cyl|trans      |drv | cty| hwy|fl |class   |
+|:------------|:----------|-----:|----:|---:|:----------|:---|---:|---:|:--|:-------|
+|audi         |a4         |   1.8| 1999|   4|auto(l5)   |f   |  18|  29|p  |compact |
+|audi         |a4         |   1.8| 1999|   4|manual(m5) |f   |  21|  29|p  |compact |
+|audi         |a4         |   2.0| 2008|   4|manual(m6) |f   |  20|  31|p  |compact |
+|audi         |a4         |   2.0| 2008|   4|auto(av)   |f   |  21|  30|p  |compact |
+|audi         |a4         |   2.8| 1999|   6|auto(l5)   |f   |  16|  26|p  |compact |
+|audi         |a4         |   2.8| 1999|   6|manual(m5) |f   |  18|  26|p  |compact |
+|audi         |a4         |   3.1| 2008|   6|auto(av)   |f   |  18|  27|p  |compact |
+|audi         |a4 quattro |   1.8| 1999|   4|manual(m5) |4   |  18|  26|p  |compact |
+|audi         |a4 quattro |   1.8| 1999|   4|auto(l5)   |4   |  16|  25|p  |compact |
+
+Zeilen sind Marks, Spalten sind Channels
+  
+
+
+---
+.pull-left[
+
+
+## Marks
+* Points
+* Lines 
+* Areas
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+
+]
+.pull-right[
+## Channels
+&lt;img src="18_channels_marks_files/figure-html/overview-1.png" width="585" /&gt;
+]
+
+
+---
+## Scatterplot (Points)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/figure-1.png)&lt;!-- --&gt;
+
+]
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/tbl-1.png" width="585" /&gt;
+]
+
+---
+## Scatterplot (Points)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+
+]
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-3-1.png" width="585" /&gt;
+]
+
+---
+## Scatterplot (Points)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+
+]
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-5-1.png" width="585" /&gt;
+]
+
+
+---
+## Scatterplot (Points)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+]
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-7-1.png" width="731" /&gt;
+]
+
+
+---
+## Timeseries (Points)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+
+]
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-9-1.png" width="585" /&gt;
+]
+
+
+---
+## Timeseries (Points + Lines)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
+
+]
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-11-1.png" width="585" /&gt;
+]
+
+
+
+---
+## Timeseries (Lines)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+
+]
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-13-1.png" width="585" /&gt;
+]
+
+
+---
+## Timeseries (Areas)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-15-1.png" width="585" /&gt;
+]
+
+--
+.red[
+**Area Marks täuschen, wenn Achse nicht bei Null beginnt!**
+]
+
+
+
+---
+## Timeseries (Areas)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-17-1.png" width="585" /&gt;
+]
+
+**Besser**
+
+---
+
+## Timeseries (Areas)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-19-1.png" width="585" /&gt;
+]
+
+---
+
+## Timeseries (Lines)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-21-1.png" width="585" /&gt;
+]
+
+
+---
+
+
+## Piechart - Proportions (Areas)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-24-1.png" width="585" /&gt;
+]
+
+---
+## Donut Chart - Proportions (Areas)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-26-1.png" width="585" /&gt;
+]
+
+
+---
+## Bar Chart (Lines)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-27-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-28-1.png" width="585" /&gt;
+]
+
+
+---
+
+## Lollipop Chart (Points &amp; Lines)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-30-1.png" width="585" /&gt;
+]
+
+---
+
+## Dot Chart (Points)
+.pull-left.width-50[
+![](18_channels_marks_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-32-1.png" width="585" /&gt;
+]
+
+---
+## Dot Matrix (Points)
+.pull-left.width-50[
+
+```r
+mpg %&gt;% 
+  group_by(manufacturer,cyl) %&gt;% 
+  summarize(n = n()) %&gt;% 
+  ggplot() +
+  aes(x = factor(cyl), y = manufacturer, size = n) +
+  geom_point() + theme_minimal_grid()
+```
+
+```
+`summarise()` has grouped output by 'manufacturer'. You can override using the `.groups` argument.
+```
+
+![](18_channels_marks_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-34-1.png" width="585" /&gt;
+]
+
+---
+## Streamgraph (Areas)
+.pull-left.width-40[
+<div id="htmlwidget-bdac35e6d3f123241ea0" class="streamgraph html-widget" style="width:400px;height:504px;"></div>
+<div id="htmlwidget-bdac35e6d3f123241ea0-legend" style="width:400" class="streamgraph html-widget-legend"><center><label style='padding-right:5px' for='htmlwidget-bdac35e6d3f123241ea0-select'></label><select id='htmlwidget-bdac35e6d3f123241ea0-select' style='visibility:hidden;'></select></center></div>
+<script type="application/json" data-for="htmlwidget-bdac35e6d3f123241ea0">{"x":{"data":{"key":["Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short","Action","Animation","Comedy","Documentary","Drama","Romance","Short"],"value":[0,0,0,0,0,0,1,0,0,0,5,0,0,9,0,0,0,2,0,0,3,0,0,1,7,1,0,12,0,0,2,6,0,0,7,0,0,2,1,1,0,5,0,0,1,4,2,0,8,0,1,5,5,2,0,16,1,0,8,9,5,1,27,0,0,2,2,1,0,9,3,0,8,8,2,1,37,0,0,10,4,3,0,42,0,0,6,2,4,0,17,0,1,2,4,5,0,15,0,1,6,0,1,0,12,3,1,8,1,8,0,24,0,1,7,0,14,1,29,0,0,2,2,14,3,26,1,1,2,1,14,1,21,0,1,4,0,22,5,30,2,2,11,1,13,0,22,1,1,38,1,13,0,38,2,3,22,1,16,0,35,1,6,27,0,13,2,29,0,0,18,0,14,2,15,1,3,23,1,14,2,22,2,3,29,2,17,5,20,0,0,20,0,14,3,13,1,2,23,0,23,6,17,0,4,16,1,20,8,14,1,3,19,2,20,11,17,3,2,24,0,15,7,18,0,4,36,2,27,10,21,5,3,40,2,37,17,26,3,2,32,2,41,21,20,5,6,45,4,51,9,33,0,17,60,11,74,14,54,4,26,125,7,106,53,74,5,41,146,5,138,45,91,5,63,143,6,157,33,116,6,51,159,7,167,66,107,8,49,192,7,164,61,123,17,69,192,13,140,62,122,9,85,212,4,120,47,143,14,75,209,10,153,62,127,8,76,217,11,133,53,126,17,80,183,10,179,35,127,15,85,213,16,156,45,134,16,97,242,16,139,57,141,24,100,203,19,148,40,145,18,74,165,26,129,26,123,11,68,157,14,118,32,101,15,51,126,22,122,28,84,10,66,144,12,135,32,101,14,61,137,7,162,41,85,21,79,172,12,179,35,107,18,80,179,9,187,43,100,14,72,166,11,167,27,99,17,71,187,13,191,39,105,18,69,178,12,194,31,90,21,63,178,13,183,44,92,23,70,168,12,177,47,96,13,61,154,15,220,49,93,13,56,143,17,183,38,83,13,41,142,13,236,44,68,16,36,141,10,219,42,53,24,31,143,13,186,42,50,19,27,126,13,224,35,38,28,30,135,12,186,32,49,25,35,163,11,210,30,53,30,21,164,19,199,32,43,39,28,160,21,189,34,46,29,58,175,29,158,20,85,32,50,176,20,168,20,86,40,43,193,38,200,39,79,45,46,166,37,223,29,79,46,23,164,22,266,31,44,31,12,156,32,252,28,30,55,23,155,40,260,25,42,59,11,146,31,238,19,27,68,9,150,24,258,22,27,85,18,130,27,258,32,25,63,20,148,36,244,32,44,82,16,148,38,250,26,36,79,20,152,24,246,27,26,64,22,151,39,231,30,35,65,20,160,27,248,38,32,72,13,184,33,230,41,38,62,19,178,31,243,43,22,83,18,172,40,255,34,39,78,25,166,31,265,41,33,83,26,190,45,278,57,38,108,33,213,45,256,59,52,131,29,204,31,289,44,40,109,35,252,49,339,55,56,94,37,249,42,332,67,50,132,37,239,37,324,63,63,134,21,232,41,321,65,50,97,37,250,46,330,76,68,120,30,240,74,347,77,75,137,32,254,60,381,84,95,147,41,309,94,435,97,141,161,52,281,84,493,116,165,159,52,352,98,493,127,194,162,49,404,133,555,161,217,144,61,451,133,634,160,279,160,85,562,156,694,184,408,154,89,561,175,793,207,449,169,82,582,196,837,211,468,176,81,591,249,929,245,533,180,94,642,261,899,215,555,147,56,597,258,805,169,480,43,10,123,35,137,37,54],"date":["1893-01-01","1893-01-01","1893-01-01","1893-01-01","1893-01-01","1893-01-01","1893-01-01","1894-01-01","1894-01-01","1894-01-01","1894-01-01","1894-01-01","1894-01-01","1894-01-01","1895-01-01","1895-01-01","1895-01-01","1895-01-01","1895-01-01","1895-01-01","1895-01-01","1896-01-01","1896-01-01","1896-01-01","1896-01-01","1896-01-01","1896-01-01","1896-01-01","1897-01-01","1897-01-01","1897-01-01","1897-01-01","1897-01-01","1897-01-01","1897-01-01","1898-01-01","1898-01-01","1898-01-01","1898-01-01","1898-01-01","1898-01-01","1898-01-01","1899-01-01","1899-01-01","1899-01-01","1899-01-01","1899-01-01","1899-01-01","1899-01-01","1900-01-01","1900-01-01","1900-01-01","1900-01-01","1900-01-01","1900-01-01","1900-01-01","1901-01-01","1901-01-01","1901-01-01","1901-01-01","1901-01-01","1901-01-01","1901-01-01","1902-01-01","1902-01-01","1902-01-01","1902-01-01","1902-01-01","1902-01-01","1902-01-01","1903-01-01","1903-01-01","1903-01-01","1903-01-01","1903-01-01","1903-01-01","1903-01-01","1904-01-01","1904-01-01","1904-01-01","1904-01-01","1904-01-01","1904-01-01","1904-01-01","1905-01-01","1905-01-01","1905-01-01","1905-01-01","1905-01-01","1905-01-01","1905-01-01","1906-01-01","1906-01-01","1906-01-01","1906-01-01","1906-01-01","1906-01-01","1906-01-01","1907-01-01","1907-01-01","1907-01-01","1907-01-01","1907-01-01","1907-01-01","1907-01-01","1908-01-01","1908-01-01","1908-01-01","1908-01-01","1908-01-01","1908-01-01","1908-01-01","1909-01-01","1909-01-01","1909-01-01","1909-01-01","1909-01-01","1909-01-01","1909-01-01","1910-01-01","1910-01-01","1910-01-01","1910-01-01","1910-01-01","1910-01-01","1910-01-01","1911-01-01","1911-01-01","1911-01-01","1911-01-01","1911-01-01","1911-01-01","1911-01-01","1912-01-01","1912-01-01","1912-01-01","1912-01-01","1912-01-01","1912-01-01","1912-01-01","1913-01-01","1913-01-01","1913-01-01","1913-01-01","1913-01-01","1913-01-01","1913-01-01","1914-01-01","1914-01-01","1914-01-01","1914-01-01","1914-01-01","1914-01-01","1914-01-01","1915-01-01","1915-01-01","1915-01-01","1915-01-01","1915-01-01","1915-01-01","1915-01-01","1916-01-01","1916-01-01","1916-01-01","1916-01-01","1916-01-01","1916-01-01","1916-01-01","1917-01-01","1917-01-01","1917-01-01","1917-01-01","1917-01-01","1917-01-01","1917-01-01","1918-01-01","1918-01-01","1918-01-01","1918-01-01","1918-01-01","1918-01-01","1918-01-01","1919-01-01","1919-01-01","1919-01-01","1919-01-01","1919-01-01","1919-01-01","1919-01-01","1920-01-01","1920-01-01","1920-01-01","1920-01-01","1920-01-01","1920-01-01","1920-01-01","1921-01-01","1921-01-01","1921-01-01","1921-01-01","1921-01-01","1921-01-01","1921-01-01","1922-01-01","1922-01-01","1922-01-01","1922-01-01","1922-01-01","1922-01-01","1922-01-01","1923-01-01","1923-01-01","1923-01-01","1923-01-01","1923-01-01","1923-01-01","1923-01-01","1924-01-01","1924-01-01","1924-01-01","1924-01-01","1924-01-01","1924-01-01","1924-01-01","1925-01-01","1925-01-01","1925-01-01","1925-01-01","1925-01-01","1925-01-01","1925-01-01","1926-01-01","1926-01-01","1926-01-01","1926-01-01","1926-01-01","1926-01-01","1926-01-01","1927-01-01","1927-01-01","1927-01-01","1927-01-01","1927-01-01","1927-01-01","1927-01-01","1928-01-01","1928-01-01","1928-01-01","1928-01-01","1928-01-01","1928-01-01","1928-01-01","1929-01-01","1929-01-01","1929-01-01","1929-01-01","1929-01-01","1929-01-01","1929-01-01","1930-01-01","1930-01-01","1930-01-01","1930-01-01","1930-01-01","1930-01-01","1930-01-01","1931-01-01","1931-01-01","1931-01-01","1931-01-01","1931-01-01","1931-01-01","1931-01-01","1932-01-01","1932-01-01","1932-01-01","1932-01-01","1932-01-01","1932-01-01","1932-01-01","1933-01-01","1933-01-01","1933-01-01","1933-01-01","1933-01-01","1933-01-01","1933-01-01","1934-01-01","1934-01-01","1934-01-01","1934-01-01","1934-01-01","1934-01-01","1934-01-01","1935-01-01","1935-01-01","1935-01-01","1935-01-01","1935-01-01","1935-01-01","1935-01-01","1936-01-01","1936-01-01","1936-01-01","1936-01-01","1936-01-01","1936-01-01","1936-01-01","1937-01-01","1937-01-01","1937-01-01","1937-01-01","1937-01-01","1937-01-01","1937-01-01","1938-01-01","1938-01-01","1938-01-01","1938-01-01","1938-01-01","1938-01-01","1938-01-01","1939-01-01","1939-01-01","1939-01-01","1939-01-01","1939-01-01","1939-01-01","1939-01-01","1940-01-01","1940-01-01","1940-01-01","1940-01-01","1940-01-01","1940-01-01","1940-01-01","1941-01-01","1941-01-01","1941-01-01","1941-01-01","1941-01-01","1941-01-01","1941-01-01","1942-01-01","1942-01-01","1942-01-01","1942-01-01","1942-01-01","1942-01-01","1942-01-01","1943-01-01","1943-01-01","1943-01-01","1943-01-01","1943-01-01","1943-01-01","1943-01-01","1944-01-01","1944-01-01","1944-01-01","1944-01-01","1944-01-01","1944-01-01","1944-01-01","1945-01-01","1945-01-01","1945-01-01","1945-01-01","1945-01-01","1945-01-01","1945-01-01","1946-01-01","1946-01-01","1946-01-01","1946-01-01","1946-01-01","1946-01-01","1946-01-01","1947-01-01","1947-01-01","1947-01-01","1947-01-01","1947-01-01","1947-01-01","1947-01-01","1948-01-01","1948-01-01","1948-01-01","1948-01-01","1948-01-01","1948-01-01","1948-01-01","1949-01-01","1949-01-01","1949-01-01","1949-01-01","1949-01-01","1949-01-01","1949-01-01","1950-01-01","1950-01-01","1950-01-01","1950-01-01","1950-01-01","1950-01-01","1950-01-01","1951-01-01","1951-01-01","1951-01-01","1951-01-01","1951-01-01","1951-01-01","1951-01-01","1952-01-01","1952-01-01","1952-01-01","1952-01-01","1952-01-01","1952-01-01","1952-01-01","1953-01-01","1953-01-01","1953-01-01","1953-01-01","1953-01-01","1953-01-01","1953-01-01","1954-01-01","1954-01-01","1954-01-01","1954-01-01","1954-01-01","1954-01-01","1954-01-01","1955-01-01","1955-01-01","1955-01-01","1955-01-01","1955-01-01","1955-01-01","1955-01-01","1956-01-01","1956-01-01","1956-01-01","1956-01-01","1956-01-01","1956-01-01","1956-01-01","1957-01-01","1957-01-01","1957-01-01","1957-01-01","1957-01-01","1957-01-01","1957-01-01","1958-01-01","1958-01-01","1958-01-01","1958-01-01","1958-01-01","1958-01-01","1958-01-01","1959-01-01","1959-01-01","1959-01-01","1959-01-01","1959-01-01","1959-01-01","1959-01-01","1960-01-01","1960-01-01","1960-01-01","1960-01-01","1960-01-01","1960-01-01","1960-01-01","1961-01-01","1961-01-01","1961-01-01","1961-01-01","1961-01-01","1961-01-01","1961-01-01","1962-01-01","1962-01-01","1962-01-01","1962-01-01","1962-01-01","1962-01-01","1962-01-01","1963-01-01","1963-01-01","1963-01-01","1963-01-01","1963-01-01","1963-01-01","1963-01-01","1964-01-01","1964-01-01","1964-01-01","1964-01-01","1964-01-01","1964-01-01","1964-01-01","1965-01-01","1965-01-01","1965-01-01","1965-01-01","1965-01-01","1965-01-01","1965-01-01","1966-01-01","1966-01-01","1966-01-01","1966-01-01","1966-01-01","1966-01-01","1966-01-01","1967-01-01","1967-01-01","1967-01-01","1967-01-01","1967-01-01","1967-01-01","1967-01-01","1968-01-01","1968-01-01","1968-01-01","1968-01-01","1968-01-01","1968-01-01","1968-01-01","1969-01-01","1969-01-01","1969-01-01","1969-01-01","1969-01-01","1969-01-01","1969-01-01","1970-01-01","1970-01-01","1970-01-01","1970-01-01","1970-01-01","1970-01-01","1970-01-01","1971-01-01","1971-01-01","1971-01-01","1971-01-01","1971-01-01","1971-01-01","1971-01-01","1972-01-01","1972-01-01","1972-01-01","1972-01-01","1972-01-01","1972-01-01","1972-01-01","1973-01-01","1973-01-01","1973-01-01","1973-01-01","1973-01-01","1973-01-01","1973-01-01","1974-01-01","1974-01-01","1974-01-01","1974-01-01","1974-01-01","1974-01-01","1974-01-01","1975-01-01","1975-01-01","1975-01-01","1975-01-01","1975-01-01","1975-01-01","1975-01-01","1976-01-01","1976-01-01","1976-01-01","1976-01-01","1976-01-01","1976-01-01","1976-01-01","1977-01-01","1977-01-01","1977-01-01","1977-01-01","1977-01-01","1977-01-01","1977-01-01","1978-01-01","1978-01-01","1978-01-01","1978-01-01","1978-01-01","1978-01-01","1978-01-01","1979-01-01","1979-01-01","1979-01-01","1979-01-01","1979-01-01","1979-01-01","1979-01-01","1980-01-01","1980-01-01","1980-01-01","1980-01-01","1980-01-01","1980-01-01","1980-01-01","1981-01-01","1981-01-01","1981-01-01","1981-01-01","1981-01-01","1981-01-01","1981-01-01","1982-01-01","1982-01-01","1982-01-01","1982-01-01","1982-01-01","1982-01-01","1982-01-01","1983-01-01","1983-01-01","1983-01-01","1983-01-01","1983-01-01","1983-01-01","1983-01-01","1984-01-01","1984-01-01","1984-01-01","1984-01-01","1984-01-01","1984-01-01","1984-01-01","1985-01-01","1985-01-01","1985-01-01","1985-01-01","1985-01-01","1985-01-01","1985-01-01","1986-01-01","1986-01-01","1986-01-01","1986-01-01","1986-01-01","1986-01-01","1986-01-01","1987-01-01","1987-01-01","1987-01-01","1987-01-01","1987-01-01","1987-01-01","1987-01-01","1988-01-01","1988-01-01","1988-01-01","1988-01-01","1988-01-01","1988-01-01","1988-01-01","1989-01-01","1989-01-01","1989-01-01","1989-01-01","1989-01-01","1989-01-01","1989-01-01","1990-01-01","1990-01-01","1990-01-01","1990-01-01","1990-01-01","1990-01-01","1990-01-01","1991-01-01","1991-01-01","1991-01-01","1991-01-01","1991-01-01","1991-01-01","1991-01-01","1992-01-01","1992-01-01","1992-01-01","1992-01-01","1992-01-01","1992-01-01","1992-01-01","1993-01-01","1993-01-01","1993-01-01","1993-01-01","1993-01-01","1993-01-01","1993-01-01","1994-01-01","1994-01-01","1994-01-01","1994-01-01","1994-01-01","1994-01-01","1994-01-01","1995-01-01","1995-01-01","1995-01-01","1995-01-01","1995-01-01","1995-01-01","1995-01-01","1996-01-01","1996-01-01","1996-01-01","1996-01-01","1996-01-01","1996-01-01","1996-01-01","1997-01-01","1997-01-01","1997-01-01","1997-01-01","1997-01-01","1997-01-01","1997-01-01","1998-01-01","1998-01-01","1998-01-01","1998-01-01","1998-01-01","1998-01-01","1998-01-01","1999-01-01","1999-01-01","1999-01-01","1999-01-01","1999-01-01","1999-01-01","1999-01-01","2000-01-01","2000-01-01","2000-01-01","2000-01-01","2000-01-01","2000-01-01","2000-01-01","2001-01-01","2001-01-01","2001-01-01","2001-01-01","2001-01-01","2001-01-01","2001-01-01","2002-01-01","2002-01-01","2002-01-01","2002-01-01","2002-01-01","2002-01-01","2002-01-01","2003-01-01","2003-01-01","2003-01-01","2003-01-01","2003-01-01","2003-01-01","2003-01-01","2004-01-01","2004-01-01","2004-01-01","2004-01-01","2004-01-01","2004-01-01","2004-01-01","2005-01-01","2005-01-01","2005-01-01","2005-01-01","2005-01-01","2005-01-01","2005-01-01"]},"markers":null,"annotations":null,"offset":"silhouette","interactive":true,"interpolate":"cardinal","palette":"PuOr","text":"black","tooltip":"black","x_tick_interval":20,"x_tick_units":"year","x_tick_format":"%Y","y_tick_count":5,"y_tick_format":",g","top":20,"right":40,"bottom":30,"left":50,"legend":false,"legend_label":"","fill":"brewer","label_col":"black","x_scale":"date","sort":true,"order":"none"},"evals":[],"jsHooks":[]}</script>
+]
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-36-1.png" width="585" /&gt;
+]
+
+
+
+---
+
+## Plotting maps (Areas)
+
+.pull-left.width-60[
+![](18_channels_marks_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+]
+
+
+.pull-right.width-40[
+&lt;img src="18_channels_marks_files/figure-html/unnamed-chunk-38-1.png" width="585" /&gt;
+]
+
+
+
+---
+background-image: url("channels_marks/overview2.png")
+background-position: 50% 50%
+background-size: 100%
+
+  
+  
+---
+background-image: url("channels_marks/markschannels_munzner.png")
+background-position: 50% 50%
+background-size: 100%
+
+.footnote[Nach Tamara Munzner Folien und Videoworkshop: 
+http://www.cs.ubc.ca/~tmm/talks.html#vad17fullday]
+
+---
+background-image: url("channels_marks/bertin.png")
+background-position: 50% 50%
+background-size: 60%
+
+.footnote[Aus Jacques Bertin - Semiology of Graphics]
+
+
+---
+
+background-image: url("channels_marks/krygierwood.png")
+background-position: 50% 50%
+background-size: 80%
+
+---
+background-image: url("channels_marks/bocher.png")
+background-position: 50% 50%
+background-size: 40%
+
+.footnote[From "A redesign of OGC Symbology Encoding standard for sharing cartography" by Erwan Bocher, Olivier Ertz
+https://peerj.com/articles/cs-143/?utm_content=buffer67428]
+
+---
+class: center, middle
+
+# Aber wie wählt man zwischen alternativen Techniken?
+
+---
+background-image: url("channels_marks/mckinlay.png")
+background-position: 50% 50%
+background-size: 80%
+
+---
+background-image: url("channels_marks/cleveland.png")
+background-position: 50% 50%
+background-size: 100%
+
+---
+background-image: url("channels_marks/steven.png")
+background-position: 50% 50%
+background-size: 60%
+
+---
+background-image: url("channels_marks/bertin2.png")
+background-position: 50% 50%
+background-size: 55%
+
+.footnote[Von Jacques Bertin]
+
+
+---
+background-image: url("channels_marks/munzner1.png")
+background-position: 50% 50%
+background-size: 100%
+
+---
+background-image: url("channels_marks/munzner2.png")
+background-position: 50% 50%
+background-size: 100%
+
+---
+background-image: url("channels_marks/munzner3.png")
+background-position: 50% 50%
+background-size: 100%
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"slideNumberFormat": ""
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
