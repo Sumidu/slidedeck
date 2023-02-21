@@ -27,17 +27,90 @@ format:
 ---
 
 
-## Agenda
+# What is open science?
 
+## 8 Pillars of open science
 
-::: {.incremental}
+The EC [^*] states that the 8 pillars of Open Science are ...
 
-- Open Science Framework
-- Quarto/Pandoc
+:::: {.columns}
+
+::: {.column width="50%" .incremental}
+
+- FAIR Data 
+- Research Integrity & reproducibility of scientific results
+- Next Generation Metrics 
+- Future of Scholarly Communication
 
 :::
 
-# new section
+::: {.column width="50%" .incremental}
+
+- Citizen Science 
+- Education and Skills 
+- Rewards & Incentives
+- European Open Science Cloud (EOSC)
+
+:::
+
+::::
+[^*]: 
+https://research-and-innovation.ec.europa.eu/strategy/strategy-2020-2024/our-digital-future/open-science_en
+
+
+
+
+## 8 Pillars of open science
+
+The EC [^*] states that the 8 pillars of Open Science are ...
+
+:::: {.columns}
+
+::: {.column width="50%" }
+
+- **FAIR Data**
+- Research Integrity & **reproducibility of scientific results**
+- Next Generation Metrics 
+- **Future of Scholarly Communication**
+
+:::
+
+::: {.column width="50%" }
+
+- Citizen Science 
+- **Education and Skills**
+- Rewards & Incentives
+- European Open Science Cloud (EOSC)
+
+:::
+
+::::
+[^*]: 
+https://research-and-innovation.ec.europa.eu/strategy/strategy-2020-2024/our-digital-future/open-science_en
+
+
+
+## FAIR Data
+
+- Findable – making research outputs discoverable by the wider academic community and the public,
+- Accessible – using unique identifiers, metadata and a clear use of language and access protocols,
+- Interoperable – applying standards to encode and exchange data and metadata and...
+- Reusable – enabling the repurposing of research outputs to maximise their research potential.
+
+## Reproducibility
+
+## Future of Scholarly Communication
+
+## Education and Skills
+
+
+# Why to do open science?
+
+
+## Making your research open is a lot of work
+
+
+# How to do open science?
 
 ## Quarto
 
