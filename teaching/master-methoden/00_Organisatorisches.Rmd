@@ -1,7 +1,7 @@
 ---
 title: "Organisatorisches und Einführung"
 subtitle: "Sozialwissenschaftliche Forschungsmethoden für Fortgeschrittene"
-author: "**Dr. André Calero Valdez**"
+author: "**Dr. André Calero Valdez** <br> **Prof. Dr. Martina Ziefle**"
 date: ""
 output:
   xaringan::moon_reader:
@@ -24,7 +24,7 @@ library(kableExtra)
 
 layout: true
 
-.footer[Fragen unter [frag.jetzt](https://frag.jetzt/participant/room/32303817). Code: 32303817]
+.footer[Fragen unter [frag.jetzt](https://frag.jetzt/participant/room/14822680). Code: 14822680]
 
 ---
 
@@ -34,18 +34,18 @@ LV.Nummer: 79.41688
 
 ```{r termine, echo=FALSE, message=FALSE}
 termine <-
-  read_csv("settings/export_20201014_233908.csv") %>%
+  read_csv("settings/export_20211014_135556.csv") %>%
   mutate(Nr = 1:n()) %>%
   rename(Datum = DATUM) 
 
-tag <- termine %>% select(WOCHENTAG) %>% magrittr::extract2(1) %>% levels()
-raum <- termine %>% select(ORT) %>% magrittr::extract2(1) %>% levels()
-start_zeit <- termine %>% select(VON) %>% magrittr::extract2(1) %>% levels()
-end_zeit <- termine %>% select(BIS) %>% magrittr::extract2(1) %>% levels()
+tag <- termine %>% select(WOCHENTAG) %>% magrittr::extract2(1) %>% as.factor() %>% levels()
+raum <- paste(termine %>% select(ORT) %>% magrittr::extract2(1) %>% as.factor() %>% levels(), collapse = " / ")
+start_zeit <- termine %>% select(VON) %>% magrittr::extract2(1) %>% as.factor() %>% levels()
+end_zeit <- termine %>% select(BIS) %>% magrittr::extract2(1) %>% as.factor() %>% levels()
 termine %>% select(Nr, Datum) -> termine_kurz
 
 termine_kurz %>% slice( 1:(n() / 2) ) %>% kable("html") -> earlierdates
-termine_kurz %>% slice( (n()/2 + 1):n()) %>% kable("html") -> laterdates
+termine_kurz %>% slice( floor((n()/2) + 1):n()) %>% kable("html") -> laterdates
 ```
 
 Termine:  `r tag`, `r start_zeit`-`r end_zeit` Uhr im Raum `r raum`
@@ -281,7 +281,7 @@ class: center, middle, inverse
 - Döring/Bortz - Forschungsmethoden und Evaluation
 
 - Online-Bücher: 
-  - Computational Communication Sciene, Link: https://bookdown.org/andrecalerovaldez/ccs/
+  <!--- Computational Communication Sciene, Link: https://bookdown.org/andrecalerovaldez/ccs/-->
   - R for Data Science, Link: http://r4ds.had.co.nz
   - R for Social Science, Link: http://socviz.co/ 
   - Modern Dive: https://moderndive.com/index.html

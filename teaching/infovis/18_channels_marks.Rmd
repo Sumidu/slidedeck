@@ -301,7 +301,7 @@ checkerboard(matrix(
 .pull-left.width-50[
 ```{r echo=FALSE, message=FALSE, warning=FALSE, dpi=150}
 pop <- read_csv(here::here("datasets", "worldpopulation.csv"), skip = 3) %>% 
-  select(-`Indicator Name`, -`Indicator Code`, -`Country Code`, -`X66`) %>% 
+  select(-`Indicator Name`, -`Indicator Code`, -`Country Code`) %>% 
   pivot_longer(cols = -`Country Name`, names_to = "year", values_to = "population") %>% 
   mutate(year = as.numeric(year))
 
@@ -578,6 +578,7 @@ checkerboard(matrix(
 ## Streamgraph (Areas)
 .pull-left.width-40[
 ```{r warning=FALSE, echo=FALSE}
+library(streamgraph)
 ggplot2movies::movies %>%
   select(year, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>%
   tidyr::gather(genre, value, -year) %>%

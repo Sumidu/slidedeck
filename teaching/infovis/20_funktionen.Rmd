@@ -359,7 +359,7 @@ make_plot("Gentoo")
 .small-font[
 ```{r eval = TRUE}
 species <- c("Adelie", "Chinstrap", "Gentoo")
-plots <- map(species, make_plot)
+plots <- purrr::map(species, make_plot)
 ```
 ]
 
@@ -384,7 +384,7 @@ plots[[1]]
 .small-font[
 ```{r eval = FALSE}
 species <- c("Adelie", "Chinstrap", "Gentoo")
-plots <- map(species, make_plot)
+plots <- purrr::map(species, make_plot)
 ```
 ]
 
@@ -405,7 +405,7 @@ plots[[2]]
 .small-font[
 ```{r eval = FALSE}
 species <- c("Adelie", "Chinstrap", "Gentoo")
-plots <- map(species, make_plot)
+plots <- purrr::map(species, make_plot)
 ```
 ]
 
@@ -427,7 +427,7 @@ plots[[3]]
 .small-font[
 ```{r penguins-plot-map, eval = FALSE}
 species <- c("Adelie", "Chinstrap", "Gentoo")
-plots <- map(species, make_plot)
+plots <- purrr::map(species, make_plot)
 
 plots[[1]]
 plots[[2]]
@@ -445,11 +445,11 @@ plots[[3]]
 .small-font[
 ```{r penguins-plot-walk, eval = FALSE}
 species <- c("Adelie", "Chinstrap", "Gentoo")
-plots <- map(species, make_plot)
+plots <- purrr::map(species, make_plot)
 
 # `walk()` is like `map()` but doesn't return a value
 # we use it only for side effects (such as printing)
-walk(plots, print)
+purrr::walk(plots, print)
 ```
 ]
 
@@ -541,7 +541,7 @@ make_plot2(data_adelie, species = "Adelie")
 ```{r}
 penguins %>%
   nest(data = -species) %>%
-  mutate(plots = map(species, make_plot))
+  mutate(plots = purrr::map(species, make_plot))
 ```
 ]
 
@@ -554,9 +554,9 @@ penguins %>%
 ```{r penguins-plot-walk-tidy, eval = FALSE}
 penguins %>%
   nest(data = -species) %>%
-  mutate(plots = map(species, make_plot)) %>%
+  mutate(plots = purrr::map(species, make_plot)) %>%
   pull(plots) %>%
-  walk(print)
+  purrr::walk(print)
 ```
 ]
 
@@ -573,7 +573,7 @@ penguins %>%
   nest(data = -species) %>%
   mutate(plots = map2(data, species, make_plot2)) %>%
   pull(plots) %>%
-  walk(print)
+  purrr::walk(print)
 ```
 ]
 
