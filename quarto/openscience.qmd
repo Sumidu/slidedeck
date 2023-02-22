@@ -97,7 +97,40 @@ https://research-and-innovation.ec.europa.eu/strategy/strategy-2020-2024/our-dig
 - Interoperable – applying standards to encode and exchange data and metadata and...
 - Reusable – enabling the repurposing of research outputs to maximise their research potential.
 
+
 ## Reproducibility
+
+Studies funded by the OSF found only 50% of findings replicate
+
+#### Reasons
+
+- Bad research design
+- HARKing, p-hacking
+
+#### Problems
+
+- Lack of analysis code availability
+- Lack of raw data availability
+- Problems with reproduction efforts
+
+
+## What is reproducibility? 
+
+![](rr.png){.absolute top=50 right=50 width="200" height="200"}
+
+#### Computational reproducibility
+
+- access to code and data 
+- Others can reproduce your results.
+
+#### Empirical reproducibility
+- sufficient information to recreate experiments or copy the study
+
+#### Replicability
+- quality of an outcome and a study
+- not discussed here
+
+
 
 ## Future of Scholarly Communication
 
