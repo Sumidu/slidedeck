@@ -134,13 +134,71 @@ Studies funded by the OSF found only 50% of findings replicate
 
 ## Future of Scholarly Communication
 
+Science communication has to adapt.
+
+:::: {.columns}
+
+::: {.column width="60%"}
+
+- Science and peer-reviewed publications should be **publicly accessible**.
+- **Multiple output formats** for different types of audiences
+
+What are **tools** that support this outcome?
+
+:::
+
+::: {.column width="40%"}
+
+![](figures/openscience_wheel.png)
+
+:::
+
+::::
+
+## New publication formats
+
+![](figures/open_access_wheel.png)
+
 ## Education and Skills
 
+Researchers must learn to apply open science principles [@skillseu].
 
-# Why to do open science?
+
+- library and information skills
+- open publication literacy skills
+- data management and open data skills
+- data science skills
+- etc. 
+
+![](openscience_process.png){.absolute top=150 right=-50 width="400" height="280"}
+
+# Why do open science?
+
+## Why do open science?
+
+#### Value-based reasons 
+
+- increases rigour, accountability, and reproducibility
+- based on inclusion, fairness, equity, and sharing
+- We get paid by the public, our results should be public
+
+
+
+## Why do open science?
+
+#### Benefits of open science
+
+- Open research gets more attention
+  - easier to cite
+  - easier for others to work with
+
+. . .
+
+Easier **for you** to follow up
 
 
 ## Making your research open is a lot of work
+
 
 
 # How to do open science?
