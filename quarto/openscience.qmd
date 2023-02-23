@@ -16,6 +16,7 @@ format:
     date: "02/23/2023"
   revealjs:
     #theme: simple
+    embed-resources: true
     logo: "logo.png"
     footer: "Open Science Initiative Lübeck - Feb 23rd 2023"
     code-link: true
@@ -26,12 +27,29 @@ format:
     lang: en
 ---
 
+# this presentation moved to its own repository for better sharing. Update back maybe?
+
+
+# 75% of all published research is behind a paywall.
+
+# Elsevier has a 37% profit margin.
+
+Apple at its peak had 27%.
+
+## Who benefits from research?
+
+![](figures/elsevierstock.png)
 
 # What is open science?
 
+## Academic definition
+
+![](figures/opendefinition.png) 
+
+
 ## 8 Pillars of open science
 
-The EC [^*] states that the 8 pillars of Open Science are ...
+The EC [^1] states that the 8 pillars of Open Science are ...
 
 :::: {.columns}
 
@@ -54,7 +72,7 @@ The EC [^*] states that the 8 pillars of Open Science are ...
 :::
 
 ::::
-[^*]: 
+[^1]: 
 https://research-and-innovation.ec.europa.eu/strategy/strategy-2020-2024/our-digital-future/open-science_en
 
 
@@ -62,7 +80,7 @@ https://research-and-innovation.ec.europa.eu/strategy/strategy-2020-2024/our-dig
 
 ## 8 Pillars of open science
 
-The EC [^*] states that the 8 pillars of Open Science are ...
+The EC [^2] states that the 8 pillars of Open Science are ...
 
 :::: {.columns}
 
@@ -85,7 +103,7 @@ The EC [^*] states that the 8 pillars of Open Science are ...
 :::
 
 ::::
-[^*]: 
+[^2]: 
 https://research-and-innovation.ec.europa.eu/strategy/strategy-2020-2024/our-digital-future/open-science_en
 
 
@@ -188,24 +206,62 @@ Researchers must learn to apply open science principles [@skillseu].
 
 #### Benefits of open science
 
-- Open research gets more attention
+![](figures/citation_advantage.jpeg){.absolute top=250 right=-150 width="600" height="500"}
+
+- Open research gets more attention [@piwowar2013data]
   - easier to cite
   - easier for others to work with
+  - easier for collaborators
 
 . . .
 
-Easier **for you** to follow up
+Easier **for you** to follow up.
 
 
-## Making your research open is a lot of work
+
+# Making your research open is a lot of work
+
+. . . 
+
+Is it though?
 
 
+## Classical Scientific Approach
+![](figures/oldscience.png){.absolute left=0 top=75 height="500" width="610"}
+
+## Classical "open" Scientific Approach
+
+![](figures/oldscience2.png){.absolute left=0 top=75 height="615" width="983"}
+
+
+## Open Science Approach
+
+![](figures/openscience.png){.absolute left=200 top=75 height="615" width="700"}
 
 # How to do open science?
 
-## Quarto
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+
+
+# Literate Programming 
+
+Programming "mixed" with explanations (e.g., Jupyter Notebook, RMarkdown, Quarto). 
+
+## Quarto 
+
+Quarto is an open-source scientific and technical publishing system built on Pandoc.
+It allows creating dynamic content with Python, R, Julia, and Observable.
+
+. . .
+
+This presentation was created in Quarto.
+
+. . .
+
+It is available live:
+ - as a website: https://osiluebeck23.netlify.app/
+ - as source code: 
 
 ## Bullets
 
